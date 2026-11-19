@@ -359,6 +359,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Incidents (5):**
   - Five hand-ins lacked their key.
   - 11-19: the stop procedure sat outside the worker's reading list.
+  - 11-18, MPN repository: long returns resent as context fed a 60%-in-12-hours worker usage burn; the project then capped briefs and hand-ins at 20 lines (see C-003).
 - **Enforce:** a hand-in template check.
 
 ### G-037 · Keep history safe
@@ -442,7 +443,7 @@ The rule text is in [OPERATING_MODEL.md](OPERATING_MODEL.md).
 |---|---|---|---|
 | C-001 | 11-02 | *"you are working and have no subagents working. this is not architect behavior. this is subcontractor behavior"*. Five unblocked tasks waited (1). | judgment: Joe |
 | C-002 | 11-19 | Codex use was *"largely being wasted on large memory reading for the workers"*. Onboarding took a third or more of a session; the budget then left out the owner's code (3). | a brief template check |
-| C-003 | 09-04 | Five umbrella tasks fell before any code. Briefs lacked owners, human surfaces, task ids or folders (7). | brief template check |
+| C-003 | 09-04 | Five umbrella tasks fell before any code. Briefs lacked owners, human surfaces, task ids or folders (7). Line cap: *"We need to remove the message bloat. that is unsustainable."* (11-18, MPN repository, relayed by its GUI architect); the same day, long orders resent as context drove a worker account through 60% of its usage in 12 hours (1). | brief template check |
 | C-005 | 09-12 | A commit landed on the wrong branch. A helper building in the architect's copy reset its branch (5). | a checkout hook |
 | C-008 | 09-24 | *"your comlink sucks"* (11-06); *"every couple hours is plenty"* (10-15); *"codex was waiting on you ... you must fix this"* (11-07). Idle turns of 5–10 h (9). | judgment: architect |
 | C-010 | 10-07 | A relayed decision acted on, twice; a void grant; a task opened on a relay (4). | judgment: architect |

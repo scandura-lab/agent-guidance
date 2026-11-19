@@ -43,6 +43,8 @@ Four terms used on this page:
   - a scratch folder outside the working copy;
   - the names to use: task id and lane;
   - the reading list and the effort level.
+
+  A brief names its parts by exact file and line, with no narrative, and fits the project's declared line cap (set in its runbook). A long brief is resent as context on every worker call.
 - **C-005** Each worker builds in its own working copy. Nobody switches the branch of a shared checkout, or builds in the architect's copy.
 
 ## Review and gates
