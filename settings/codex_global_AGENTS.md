@@ -1,0 +1,1 @@
+The code written should be as efficient as possible, but the code logic should also be human understandable and comprised of conceptually-defined, testable code blocks/functions/modules. 
