@@ -40,7 +40,11 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. The project keeps one map of its pieces: for each behaviour, its owning module, that module's contract (inputs and outputs), its callers and its tests. Import edges are generated from the code, never written by hand.
   2. The map is what lets a change be checked by what it touched: the ***selector*** reads it to choose the tests a change can affect (G-025), and a reviewer reads it to find the owner (G-003) and to judge whether a piece is reusable (G-001).
   3. A change that adds or changes a piece updates that piece's entry in the same change. A map that disagrees with the code fails a check.
-- **G-004 A second path is a defect.** Never add a copy, a parallel version or a "temporary" twin. A second path you find is reported for removal, never kept by approval.
+- **G-004 A second path is a defect unless Joe approves it.**
+  1. Never add a copy, a parallel version or a "temporary" twin by default; extend, widen or wrap the owner (G-002, G-003).
+  2. A second path exists only as a conscious, reasoned decision that Joe approves. Before asking, do the work that would convince you it is necessary: show why the owner cannot be extended, widened or wrapped, and have that case tested by a cold reader, a red team or higher-effort reasoning. Bring Joe the case, what the second path costs, and that review. A request without that work is not a request; it is a stop on your own plan.
+  3. An approved second path is recorded at its owner, with its reason, the approval and a test that pins the difference, and is kept narrow.
+  4. A second path found without that record is reported as a debt for removal. It stays only if it passes sub-point 2.
 - **G-006 Remove the possibility, one layer up.** (Example 3)
   1. Before adding a flag, mode or special case, ask whether a higher level removes the problem. The caller sets ***policy***; a called module only checks its inputs.
   2. Pass what a step needs as an argument; never rely on the order of calls.

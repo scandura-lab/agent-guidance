@@ -113,10 +113,12 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - *"parallel paths should not be possible without approval at the highest levels … this MUST BE a conscious and reasoned decision"* (10-07).
   - *"No legacy structures or second paths"* (10-31).
   - *"Please be sure you are not inventing parallel paths for things we already have steps for"* (11-16).
+  - On the 10-07 words, which allow approval: *"the key is to have the agent need to justify a parallel path to actually convince itself that a parallel path is necessary and then to seek approval. Not just seek approval but do the work beforehand (cold reader or red-team or higher reasoning etc)"* (11-19).
 - **Incidents (7):**
   - 10-07: one calculation had three implementations.
   - 10-07: "parallel paths with a sunset" were offered for approval.
   - Further second paths on 10-05, 10-09, 10-31, 11-11 and 11-16.
+  - 11-19, cross-repository review: the rule said "never kept by approval" while the 10-07 words allow approval at the highest level; Joe ruled that approval is possible, after the agent has justified the path and had the case reviewed.
 - **Enforce:**
   - Each known second path is a debt with an open removal task, and fails when the task closes.
   - A scan for identical function bodies.
