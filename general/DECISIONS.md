@@ -421,7 +421,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - A document change runs the tests that read it.
   - An entry's time may not be later than its commit.
 
-### G-042 · Corrections become checks
+#
+- **Incident, sub-point 4:** 11-19: the microscopy repository defined these four words for its own register while MPN used none; one vocabulary lets a reader compare registers.
+
+## G-042 · Corrections become checks
 **Absorbs** G-043 · **first** 11-19 · **applies to** registers, checks, agent memory
 - **Words:** a principle Joe adopted on 11-19 (not his wording): *"Agents repeat mistakes because nothing enforces a line in a text file. If you correct something twice, add a check. Run each check only on the files it's about, and put the reason in the error."*
 - **Incidents (4):**

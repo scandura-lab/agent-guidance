@@ -151,6 +151,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. A correction made twice becomes a check. The check tests the behaviour (never a list of names, G-016), runs only on the files its rule covers, and prints the rule's id and reason.
   2. A rule no check can enforce names who judges it.
   3. Each decision has one current entry in the register, revised or retired in place.
+  4. Each entry says how its rule is held, in one of four words: **checked** (a check fails when it is broken), **partly** (a check misses the recurring failure), **to build** (no check yet) or **judgment** (a named person checks it).
 - **G-048 General rules here; project rules in the project.**
   1. These pages hold only engineering rules that hold on any project. A rule about one project's domain (its science, data, models, instruments, names, paths, tools or tests) belongs in that project's own rules page, never here.
   2. Every project keeps its own rules page, listed on its start page. It holds only what is specific to that project: what its foundational pieces are (G-001 sub-point 7), its owners and commands, its names, paths and tests, and its domain contracts. Each entry names the G rule it refines and never restates it (G-038).
