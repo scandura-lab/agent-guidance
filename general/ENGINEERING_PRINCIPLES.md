@@ -129,6 +129,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. Commit an explicit list of paths after reading the status.
   2. Never rewrite published history or bypass a commit hook.
   3. Never edit a script while it runs.
+  4. After each commit, list what it took (`git show --stat HEAD`): where agents share a clone, a lock race can commit another agent's staged files under your message. Never stash where worktrees share one stash stack; commit work in progress to your own branch.
 - **G-038 Documents are true, single and current.**
   1. A document says what is true now, or marks it NOT YET TRUE. Outdated text is deleted; version control keeps it.
   2. State each rule once and point to it by id. Citations resolve. A count that changes with the code (of rules, files or tests) is given as the command that produces it; a count someone measured, such as a brief's count of copies, gives the number and how it was measured.

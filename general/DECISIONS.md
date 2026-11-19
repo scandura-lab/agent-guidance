@@ -366,7 +366,9 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Bulk adds committed unrelated files.
   - Rebased merges lost records.
   - Scripts were edited while running (10-03, 10-09, 11-08).
-- **Enforce:** a push hook refuses rewritten history.
+  - 09-18, MPN repository: a commit that failed on a ref-lock race still landed, carrying another agent's staged files under the wrong message.
+  - 07-27, MPN repository: agents in separate worktrees shared one stash stack, so one agent's stash could be popped by another.
+- **Enforce:** a push hook refuses rewritten history. Sub-point 4: `judgment: architect` at review of the commit list.
 
 ### G-038 · Documents are true, single and current
 **Absorbs** G-039, G-040, G-041 · **first** 08-16 · **applies to** documents
