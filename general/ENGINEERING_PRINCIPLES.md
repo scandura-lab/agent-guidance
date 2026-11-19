@@ -64,7 +64,6 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. Never choose a domain answer: what to measure, a threshold, an exclusion, a model, a normalization. Each is a declared choice the person makes; the software offers the options, records the choice and reports its consequences.
   3. The everyday path is a screen, or one command a person can type without reading code. Longer command lines are for agents.
   4. Citing an earlier ruling does not make a science choice into a rule. Check whether it is science first. If it is, it stays a declared choice the person makes.
-  5. **Where science has one answer, the software enforces it.** A practice that would make an output's own labels false is refused, never offered as an option: test data steering a selection, one subject on both sides of a held-out split, a fabricated value indistinguishable from a measured one. Each enforcement names the label it keeps true; one that cannot is a declared choice (sub-point 2).
 - **G-020 No hidden defaults.** (Example 5)
   1. Every value the code runs with can be seen. A default nobody chose is marked "default nobody chose" wherever the value is shown or recorded.
   2. Settings are typed, versioned objects. One module writes them and one parses them; other code receives the typed object and reads its fields, never string keys.
