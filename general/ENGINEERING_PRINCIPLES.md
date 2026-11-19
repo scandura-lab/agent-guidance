@@ -146,7 +146,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. A rule no check can enforce names who judges it.
   3. Each decision has one current entry in the register, revised or retired in place.
 - **G-048 General rules here; project rules in the project.**
-  1. These pages hold only engineering rules that hold on any project. A rule about one project's domain (its science, data, models, instruments, names, paths, tools or tests) belongs in that project's own rules page, never here.
+  1. These pages hold only engineering rules that hold on any project. A rule shared by the projects of one domain (science, for example) belongs in that domain's opt-in set in this repository (`domains/`). A rule about one project (its data, models, instruments, names, paths, tools or tests) belongs in that project's own rules page. Neither goes here.
   2. Every project keeps its own rules page, listed on its start page. It holds only what is specific to that project: what its foundational pieces are (G-001 sub-point 7), its owners and commands, its names, paths and tests, and its domain contracts. Each entry names the G rule it refines and never restates it (G-038).
   3. A generalizable engineering principle belongs here, not in a project's page. When a project rule turns out to be one, it is proposed here, and the project's entry shrinks to what is specific to that project, citing the new id.
   4. A project carries a stamped copy of these pages, made and checked by this repository's tools. The copy is never edited in place; a change is proposed here.

@@ -417,6 +417,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 11-19: the first draft mixed the general rules with one repository's rules.
   - 11-19: the general register cited one repository's task number as its check (G-023), and was corrected when the pages became their own repository.
 - **Why:** one general set can be refined across every project only if it holds nothing project-specific; a project's page stays short only if it never restates a general rule.
+- **Refined 11-19:** a third layer between the two, the opt-in domain sets (`domains/science` first), after Joe ruled that science rules are domain, not general engineering, and chose one shared science set over per-project copies.
 - **Enforce:**
   - The stamped copy carries the source commit, and a check flags a copy that differs from that commit or is behind the source.
   - A vocabulary check of these pages against each project's own words (G-016's *Why* allows a vocabulary check).
