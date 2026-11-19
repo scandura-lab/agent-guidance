@@ -207,6 +207,9 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Domain settings have no default.
   - A task states its human surface.
   - Design talk: `judgment: architect, then Joe`.
+  - Sub-point 5: each enforcement names the label it keeps true, in its refusal.
+- **Words, sub-point 5:** *"this is not a user option. it is bad science. the repo must enforce doing good science."* (08-10, MPN repository, ruling that selecting on test-set metrics stays banned).
+- **Incidents, sub-point 5 (1):** 11-19, cross-repository review: sub-point 2 alone read as letting a person declare a leaky split, and a project rule ("never forbids one") contradicted that project's own held-out-split checks.
 
 ### G-020 · No hidden defaults
 **Absorbs** G-012 · **first** 08-27 · **applies to** every value code runs with
