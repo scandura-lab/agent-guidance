@@ -123,7 +123,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. A command you need that is refused (permissions, sandbox) is a stop; never reach the same result another way.
   3. Finish the parts the problem does not block, then stop, naming the blocked part.
   4. After two failed attempts at the same fix, stop and report what you measured.
-- **G-047 Hand in once.** Your hand-in is your final message to the architect. It fits the project's declared line cap and gives:
+- **G-047 Hand in once.** Your hand-in is your final message to the architect. It fits the project's line cap, where its runbook declares one, and gives:
   - the tip commit and the files changed;
   - the owner lines and the witness's two results (`WITHOUT:` and `WITH:` go here, never in a commit message);
   - the steps of each new, widened or wrapped unit (G-002);
