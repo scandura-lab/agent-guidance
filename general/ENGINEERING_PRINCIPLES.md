@@ -86,7 +86,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   3. A deadline does not change this. If the real fix will not fit, say so.
 - **G-023 A witness for every change.**
   1. **A change that adds or changes behaviour:** the ***witness*** fails on the ***base*** because the behaviour is absent, and passes on your ***tip***. Either an assertion fails, or the new name it calls does not exist yet. An import or attribute error counts only when it names something your change adds; any other error does not count. Never write a presence check (`assert name in …`) to make the base fail.
-  2. **A change that keeps behaviour** (a deletion, a rename, an extraction, a clean-up): the witness is what the contract still promises, the callers' and contract tests. It passes on both trees.
+  2. **A change that keeps behaviour** (a deletion, a rename, an extraction, a clean-up): the witness is what the contract still promises, the callers' and contract tests. It passes on both trees, and has been seen to fail once: break the moved or changed code on purpose, watch the witness go red, and put it back. Record all three results.
   3. Either way, run it on both trees and record both results.
   4. The witness for a removal is the contract, never the absence of a name. Never write a test that searches for an old name (G-016).
   5. The expected answer comes from the brief or an independent calculation, never from the code it checks.
