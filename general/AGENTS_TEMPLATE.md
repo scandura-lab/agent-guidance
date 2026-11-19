@@ -7,8 +7,9 @@ Copy this into a repository's root and fill in each `CAPITALIZED` slot. Keep it 
 - Every command must work in a fresh agent shell:
   - it starts with `cd ABSOLUTE_WORKTREE &&`, because the working folder does not persist between calls;
   - it uses absolute tool paths;
-  - it contains no angle brackets, which a shell reads as redirection;
-  - it never takes a shared lock and never runs the whole suite;
+  - it contains no angle-bracket placeholders (such as `<path>`), which a shell reads as redirection;
+  - it never takes a shared lock, and never runs the whole suite where the project has a test selector (G-025);
+  - a command that runs code sets DATA_ROOT_OFF, the project's real-data location pointed at a folder that does not exist, so a worker's run cannot reach real data (G-024);
   - it chains with `&&`, or ends by printing and returning the real exit status, so a failure is never reported as a pass.
 - Run each command once before publishing.
 
@@ -30,10 +31,10 @@ ENVIRONMENT COMMANDS. Never change the shared environment from a working copy.
 The architect prepares WORKTREE. Check it: `cd WORKTREE && WRITABLE_CHECK`. Never create a worktree inside the main clone's `.git`, and never write to the main checkout.
 
 ## Check your work
-`cd WORKTREE && CHECK_COMMAND WORKER`. It runs the selected tests, never the whole suite, and never under a shared lock.
+`cd WORKTREE && DATA_ROOT_OFF CHECK_COMMAND WORKER`. It runs the selected tests (the whole suite only where the project has no selector, G-025), never under a shared lock.
 
 ## Prove the witness
-`cd WORKTREE && WITNESS_COMMAND TEST_NODE`. A change that adds behaviour: fails on the base with an assertion, passes on the tip. A change that keeps behaviour: its contract tests pass on both.
+`cd WORKTREE && WITNESS_COMMAND TEST_NODE`. It records the base and tip runs G-023 asks for.
 
 ## Find the owner
 `OWNER_LOOKUP "WORD"`.
