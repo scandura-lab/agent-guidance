@@ -169,6 +169,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
 - **Brief:** the task an architect gives a worker. Its parts are defined once, in OPERATING_MODEL C-003.
 - **Contract:** a module's declared inputs, outputs and refusals.
 - **Gate:** the full check a change must pass before it **lands** (joins the main line).
+- **Governing document:** a page of rules or decisions (these pages, a project's start page, rules page and register). Only an architect changes one; contract and reference documents change with the code, in the same change, by whoever changes it (G-038).
 - **Guard:** a test that refuses a forbidden form in the code.
 - **Layer:** a level in the project's declared stack (for example: files, core data, computing, display).
 - **Owner:** the one module that implements a behaviour; a **data owner** is the person responsible for some data.

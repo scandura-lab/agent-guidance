@@ -404,7 +404,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 07-27, MPN repository: agents in separate worktrees shared one stash stack, so one agent's stash could be popped by another.
 - **Enforce:** a push hook refuses rewritten history. Sub-point 4: `judgment: architect` at review of the commit list.
 
-### G-038 · Documents are true, single and current
+#
+- **Incident, governing document:** 11-19: the operating model let only the architect change a governing document while G-038 sub-point 3 told the worker to update documents in the same change; the term had no definition.
+
+## G-038 · Documents are true, single and current
 **Absorbs** G-039, G-040, G-041 · **first** 08-16 · **applies to** documents
 - **Words:**
   - *"your memory is frail"* (08-22).
