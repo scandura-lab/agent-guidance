@@ -265,8 +265,6 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Enforce:**
   - One command, with `--kind adds` or `--kind preserves`, runs the witness on the base and the tip. It records `WITHOUT:` and `WITH:`, or `BASE:` and `TIP:`. For `--kind adds`, an import or attribute error counts only for a name the tip adds.
   - A hand-in check refuses a hand-in without that record.
-  - Sub-point 2: `--kind preserves` also records the red run against a deliberate break (`BROKEN:`).
-- **Incidents, sub-point 2 (1):** 09-03, MPN repository: of 5,744 tests, about 11% had any evidence that they could fail. A witness that passes on both trees proves nothing if no change could make it fail (G-027).
 
 ### G-046 · Never weaken a test to make it pass
 **first** n.r.; own rule 11-19 · **applies to** tests
