@@ -55,7 +55,6 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Twice, a page's main total vanished after a layout edit.
   - 11-19: reviewers read the rule as forbidding a new operation from shipping with its own display.
 - **Enforce:** refuse imports from display modules into action modules; a layout contract test per page.
-- **Incidents, sub-point 4:** a page's total vanished after a layout edit, twice, because the page computed it (microscopy); dashboards that recomputed or repaired what the producer published are why the MPN repository made it a rule ("projections render truth; they never make it").
 
 ### G-002 · Compose; never accrete
 **Absorbs** G-005 · **first** 08-21; extraction in the brief 11-19 · **applies to** all product code

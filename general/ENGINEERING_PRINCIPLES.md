@@ -23,7 +23,6 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. What a screen shows and what the code does live in separate modules.
   2. A change to how something looks never changes what it does.
   3. A new operation still ships complete, with the display it needs: its declared labels and controls.
-  4. A display, report or generated summary renders what its owner published, from the same contract object. It never recomputes a result, fills a missing value, or infers a status the owner did not publish; a display that computes is a second owner (G-003).
 - **G-002 Compose; never accrete.**
   1. **Find the seams.** List the steps a unit performs. A seam is right only where the piece on each side would be reusable on its own. Never cut where a piece only makes sense inside its caller; find the general operation instead.
   2. A composing unit only wires pieces together; it holds no piece's logic itself. A pipeline stage is a composing unit: splitting a long pipeline into stage modules that still hold their logic is a step on the way, recorded in the plan, not the end state.
