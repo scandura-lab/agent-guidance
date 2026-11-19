@@ -55,6 +55,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Twice, a page's main total vanished after a layout edit.
   - 11-19: reviewers read the rule as forbidding a new operation from shipping with its own display.
 - **Enforce:** refuse imports from display modules into action modules; a layout contract test per page.
+- **Incidents, sub-point 4:** a page's total vanished after a layout edit, twice, because the page computed it (microscopy); dashboards that recomputed or repaired what the producer published are why the MPN repository made it a rule ("projections render truth; they never make it").
 
 ### G-002 · Compose; never accrete
 **Absorbs** G-005 · **first** 08-21; extraction in the brief 11-19 · **applies to** all product code
@@ -74,6 +75,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - A list of several-job modules that may only shrink.
   - A change that adds a job to an existing module fails unless it moves that job out.
   - The architect refuses a brief without the extraction.
+- **Incident, sub-point 2:** 11-19, MPN repository: the dataset compile driver was split into four stage modules, each called only by the driver and each still holding its logic; by G-001 sub-point 4 that is a monolith cast to pieces.
 
 ### G-003 · One behaviour, one owner
 **first** 10-05; verification by reading 11-19 · **applies to** all code, exploration included
@@ -95,8 +97,6 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Each brief names the owner and its count of copies, and the hand-in confirms both.
 - **Words, sub-point 5:** *"One reader, one writer, one structured object"* (10-05); *"Each step has a settings object that cannot drift and one reader and one writer."* (10-16).
 - **Incidents, sub-point 5:** 10-05, a second reader of a stored fact found none of its records; 10-09, a loose metadata dictionary was read by key at 26 sites (microscopy).
-- **Incident, sub-point 2:** 11-19, MPN repository: the dataset compile driver was split into four stage modules, each called only by the driver and each still holding its logic; by G-001 sub-point 4 that is a monolith cast to pieces.
-- **Incidents, sub-point 4:** a page's total vanished after a layout edit, twice, because the page computed it (microscopy); dashboards that recomputed or repaired what the producer published are why the MPN repository made it a rule ("projections render truth; they never make it").
 
 ### G-049 · Keep one map of the library
 **first** 10-09 · **applies to** every module
@@ -406,6 +406,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Citations resolve.
   - A document change runs the tests that read it.
   - An entry's time may not be later than its commit.
+- **Incident, governing document:** 11-19: the operating model let only the architect change a governing document while G-038 sub-point 3 told the worker to update documents in the same change; the term had no definition.
 
 ### G-042 · Corrections become checks
 **Absorbs** G-043 · **first** 11-19 · **applies to** registers, checks, agent memory
@@ -420,7 +421,6 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Each check exists and prints its id.
   - A retired entry names its replacement.
 - **Incident, sub-point 4:** 11-19: the microscopy repository defined these four words for its own register while MPN used none; one vocabulary lets a reader compare registers.
-- **Incident, governing document:** 11-19: the operating model let only the architect change a governing document while G-038 sub-point 3 told the worker to update documents in the same change; the term had no definition.
 
 ### G-048 · General rules here; project rules in the project
 **first** 11-19 · **applies to** these pages and every project's rules page
