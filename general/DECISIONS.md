@@ -78,7 +78,11 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - A change that adds a job to an existing module fails unless it moves that job out.
   - The architect refuses a brief without the extraction.
 
-### G-003 · One behaviour, one owner
+#
+- **Words, sub-point 5:** *"One reader, one writer, one structured object"* (10-05); *"Each step has a settings object that cannot drift and one reader and one writer."* (10-16).
+- **Incidents, sub-point 5:** 10-05, a second reader of a stored fact found none of its records; 10-09, a loose metadata dictionary was read by key at 26 sites (microscopy).
+
+## G-003 · One behaviour, one owner
 **first** 10-05; verification by reading 11-19 · **applies to** all code, exploration included
 - **Words:**
   - *"If we had a parquet writer module, this change would be to change that module and we'd be done b/c everyone used it."* (10-09).
