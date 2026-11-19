@@ -98,6 +98,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. Workers never read or write ***real data***, not even to "just check"; they name the check the architect should run.
   2. Tests use synthetic data in temporary folders.
   3. The architect may read real data into its own folder. Writing, moving or deleting real data needs a tested command and the data owner's permission. A conversion of stored records is rehearsed on a copy, verified, applied and reported.
+  4. **Regulated data never leaves its folder, in any form.** Where a project declares its real data regulated (patient data, for example), no row, identifier or absolute date from it appears in code, a document, a log, a commit, a brief or a transcript, the architect's included; report counts only. An ignored file inside the working copy is still inside it: a sync client copies it, and a secret that reaches a remote stays reachable after it is rotated.
 - **G-025 Run what you touched, and say what ran.**
   1. Run the tests that cover your change: the project's test ***selector*** picks them, with its ***structural checks***, where it has one. In a small project with no selector, that can be the whole suite.
   2. Where a selector exists, never run the whole suite; it belongs to the ***gate***. If the selector picks everything, run only your witness and the tests of the modules you changed, by name, and say that the rest is the gate's.
@@ -159,7 +160,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
 - **Owner:** the one module that implements a behaviour; a **data owner** is the person responsible for some data.
 - **The person:** whoever uses the software and makes its decisions (in Joe's projects, the scientist).
 - **Policy:** which option to use, and when. It is the caller's decision.
-- **Real data:** the live data a project serves or studies (its live folders and live services), and any copy of it. Synthetic files committed with the code, and an error message or log excerpt quoted in a brief, are not real data.
+- **Real data:** the live data a project serves or studies (its live folders and live services), and any copy of it. Synthetic files committed with the code, and an error message or log excerpt quoted in a brief, are not real data, unless the excerpt quotes a record of regulated data (G-024 sub-point 4).
 - **Scratch folder:** a writable folder the brief names, outside the working copy.
 - **Selector:** the project's tool that picks the tests a change affects.
 - **Step:** one action a unit performs on data, such as read, filter, measure, compute, format or write. Listing them is how you find the seams (G-002).

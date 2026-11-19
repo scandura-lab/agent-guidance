@@ -293,7 +293,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 10-08: a computation waited on a write approval.
   - 11-19, two rounds: the reviewers found the right to read, the right to write, and what counts as real data each stated several ways.
 - **Why:** real data is the one thing that cannot be regenerated, and a copy carries the same risk.
-- **Enforce:** a test fixture fails when the data-location variable names a real folder.
+- **Enforce:**
+  - A test fixture fails when the data-location variable names a real folder.
+  - Sub-point 4: a commit hook refuses staged data files; reports and logs give counts, not rows (`judgment: architect` for text).
+- **Why, sub-point 4:** in a project with patient data, a quoted log line can carry an identifier or a date, so the glossary's log-excerpt exception cannot hold there; and an ignored file is still synced and pushed by tools that do not read the ignore list.
 
 ### G-025 · Run what you touched, and say what ran
 **Absorbs** G-026, G-030 · **first** 08-04; focused runs 11-01 · **applies to** every result reported
