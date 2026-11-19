@@ -210,17 +210,13 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Enforce:** one list of every project's own words, refused in shared code and its strings. This is a vocabulary check (G-016's *Why*).
 
 ### G-019 · The person decides
-**Absorbs** G-022 · **first** 09-10 · **applies to** design, settings, reports, surfaces
+**Absorbs** G-022 · **first** 09-10; science parts moved to the science set 11-19 · **applies to** design, settings, reports, surfaces
 - **Words:**
-  - *"you are trying to do science again"* (09-13).
   - *"There is no absolute refusal"* (11-08).
   - *"you've vomited command line to me"* (11-05).
-- **Incidents (15):**
-  - 09-10, 09-13, 10-07 (twice), 10-08 (four times), 10-15, 10-23, 11-02 and 11-11: an agent chose a domain answer.
-  - 11-05: all seven reviewed items were command packets.
-  - 11-19: a draft repository rule made normalization law ("never per tile … drives both the display … a tile is never its own normalization authority"), carried in from earlier GUI rulings. Joe: *"you are making science decisions again with #2. Normalization is a science decision. when, how, it is done is up to the scientist. the repo just makes options available."* Sub-point 4 was added: citing a ruling does not make a science choice a rule.
+- **Incidents (1):** 11-05: all seven reviewed items were command packets.
+- **Moved 11-19:** sub-points 2 (never choose a science answer) and 4 (citing a ruling does not make a science choice a rule), with their words and incidents, are now S-001 in the shared science set (`domains/science`). Joe: *"rules like 'don't make scientific decisions' belong to the data-science / analysis domain, not to general engineering"*. Sub-point 2 here keeps only the domain-neutral part.
 - **Enforce:**
-  - Domain settings have no default.
   - A task states its human surface.
   - Design talk: `judgment: architect, then Joe`.
 

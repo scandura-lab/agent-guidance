@@ -69,9 +69,8 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
 - **G-018 Shared code is generic.** No project, study or dataset appears in shared code, its defaults, strings or views. Specifics are settings ***the person*** declares.
 - **G-019 The person decides.**
   1. Show the evidence and its consequences, apply the choice the person declared, and record that choice with the result.
-  2. Never choose a domain answer: what to measure, a threshold, an exclusion, a model, a normalization. Each is a declared choice the person makes; the software offers the options, records the choice and reports its consequences.
+  2. Domain answers are the person's. The software offers the options and never picks one for them; a domain's own rules say which choices those are (for science projects, the science set's S-001).
   3. The everyday path is a screen, or one command a person can type without reading code. Longer command lines are for agents.
-  4. Citing an earlier ruling does not make a science choice into a rule. Check whether it is science first. If it is, it stays a declared choice the person makes.
 - **G-020 No hidden defaults.** (Example 5)
   1. Every value the code runs with can be seen. A default nobody chose is marked "default nobody chose" wherever the value is shown or recorded.
   2. Settings are typed, versioned objects. One module writes them and one parses them; other code receives the typed object and reads its fields, never string keys.
