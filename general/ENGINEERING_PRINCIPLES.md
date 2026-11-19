@@ -52,7 +52,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. Before adding a flag, mode or special case, ask whether a higher level removes the problem. The caller sets ***policy***; a called module only checks its inputs.
   2. Pass what a step needs as an argument; never rely on the order of calls.
   3. Add a registry (a list of interchangeable cases) only at the second real case. Then a new case is one file plus one line in the list. A wrapper calls the original; it never copies it.
-- **G-016 Never guard behaviour with a list of names.** To stop something being used, remove it; otherwise declare the contract and test the behaviour. (Example 4)
+- **G-016 Never guard behaviour with a list of names.** To stop something being used, remove it; otherwise declare the contract and test the behaviour. A name-list guard that already exists is a debt: it may only shrink, and a behaviour test is planned to replace it. (Example 4)
 - **G-010 Portable and one-way.**
   1. Dependencies point one way: lower layers never import higher ones. The dependency map is generated from the imports, never written by hand.
   2. Code names no absolute path, home folder, user name, operating system or storage service. It reads locations the project declares (settings or the environment), and one function picks the device (CPU or GPU).

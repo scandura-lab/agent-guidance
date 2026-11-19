@@ -153,7 +153,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Refuse backend names in general code.
   - Otherwise `judgment: architect`.
 
-### G-016 · Never guard behaviour with a list of names
+#
+- **Incident, debts:** 11-19, census: four live name-list guards in the microscopy repository; in MPN, an outcome-name scan with an acknowledgement list, and a function-length test with a name allowlist.
+
+## G-016 · Never guard behaviour with a list of names
 **first** 09-09; ruling 11-01; restored as its own rule 11-19 · **applies to** guards, validators, tests
 - **Words:**
   - *"I don't like your approach of excluding function names to change behavior. This should be contracted."* and *"This is just lazy wallpapering over a defect"* (11-01).
