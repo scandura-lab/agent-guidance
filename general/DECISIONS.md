@@ -89,6 +89,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 11-19: "the file or the function" let a worker read only the function; the rule now says the whole file, read to its end.
   - 11-19, behaviour test (draft 3): given a plain request to rename a parameter across a small package, an agent changed nothing. It read the brief-only mechanics (a caller list, no whole-codebase search, a selector) as binding without a brief. The rule now states when they apply.
 - **Why:** with one owner, a change is one edit. The architect surveys the code, and the worker verifies by reading the owner in full, so neither does the other's job.
+- **Incident, sub-point 3 (1):** 11-19, cross-repository review: "the only search you make" contradicted sub-point 2 for a direct request, where you count the copies yourself; Example 2's inline copy would not be found by the owner's name.
 - **Enforce:**
   - A map with one owner per behaviour; a duplicate owner fails.
   - Each brief names the owner and its count of copies, and the hand-in confirms both.

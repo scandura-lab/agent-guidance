@@ -34,7 +34,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
 - **G-003 One behaviour, one owner.** (Example 2)
   1. Every behaviour lives in one module, its ***owner***, and every caller uses that module.
   2. With a brief, the brief names the owner and its count of other copies, from the architect's survey; you confirm both by reading the owner, its callers and its tests, and you report any other copy you meet. With a direct request, you find the owner and count the copies yourself.
-  3. Before editing, read the owner's whole file and its contract tests, in pieces if a tool cuts the output, until you reach the end. Find its callers by searching for the owner's name (for example `git grep -n NAME`); that is the only search you make.
+  3. Before editing, read the owner's whole file and its contract tests, in pieces if a tool cuts the output, until you reach the end. Find its callers by searching for the owner's name (for example `git grep -n NAME`). With a brief, that is the only search you make; with a direct request, also search for other copies, which rarely carry the owner's name (Example 2).
   4. If you find another copy, stop and report it before changing the owner, because the copies would drift apart. With a brief, never search for copies yourself; the architect's survey did that.
 - **G-004 A second path is a defect.** Never add a copy, a parallel version or a "temporary" twin. A second path you find is reported for removal, never kept by approval.
 - **G-006 Remove the possibility, one layer up.** (Example 3)
