@@ -59,7 +59,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 11-19: reviewers read the rule as forbidding a new operation from shipping with its own display.
 - **Enforce:** refuse imports from display modules into action modules; a layout contract test per page.
 
-### G-002 · Compose; never accrete
+#
+- **Incident, sub-point 2:** 11-19, MPN repository: the dataset compile driver was split into four stage modules, each called only by the driver and each still holding its logic; by G-001 sub-point 4 that is a monolith cast to pieces.
+
+## G-002 · Compose; never accrete
 **Absorbs** G-005 · **first** 08-21; extraction in the brief 11-19 · **applies to** all product code
 - **Words:**
   - *"monolithic functions are forbidden, bespoke 'fixes' are forbidden"* (08-21).

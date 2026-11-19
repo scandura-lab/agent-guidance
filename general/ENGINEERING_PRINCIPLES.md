@@ -26,7 +26,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   4. A display, report or generated summary renders what its owner published, from the same contract object. It never recomputes a result, fills a missing value, or infers a status the owner did not publish; a display that computes is a second owner (G-003).
 - **G-002 Compose; never accrete.**
   1. **Find the seams.** List the steps a unit performs. A seam is right only where the piece on each side would be reusable on its own. Never cut where a piece only makes sense inside its caller; find the general operation instead.
-  2. A composing unit only wires pieces together; it holds no piece's logic itself.
+  2. A composing unit only wires pieces together; it holds no piece's logic itself. A pipeline stage is a composing unit: splitting a long pipeline into stage modules that still hold their logic is a step on the way, recorded in the plan, not the end state.
   3. A brief that adds a step to a module already doing several steps must include the extraction: the new unit, its file, and the callers it moves. Otherwise it is a plan error (a stop because the brief's plan is wrong), returned before work starts.
   4. Changing such a module in place is allowed only when the change adds no new step.
   5. **Reuse before writing.** Look for an existing general piece that does the job, or that a new argument would let do it (G-003), and use, ***widen*** or ***wrap*** it; never grow an unrelated block.
