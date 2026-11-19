@@ -25,7 +25,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   3. A new operation still ships complete, with the display it needs: its declared labels and controls.
 - **G-002 Compose; never accrete.**
   1. **Find the seams.** List the steps a unit performs. A seam is right only where the piece on each side would be reusable on its own. Never cut where a piece only makes sense inside its caller; find the general operation instead.
-  2. A composing unit only wires pieces together; it holds no piece's logic itself.
+  2. A composing unit only wires pieces together; it holds no piece's logic itself. A pipeline stage is a composing unit: splitting a long pipeline into stage modules that still hold their logic is a step on the way, recorded in the plan, not the end state.
   3. A brief that adds a step to a module already doing several steps must include the extraction: the new unit, its file, and the callers it moves. Otherwise it is a plan error (a stop because the brief's plan is wrong), returned before work starts.
   4. Changing such a module in place is allowed only when the change adds no new step.
   5. **Reuse before writing.** Look for an existing general piece that does the job, or that a new argument would let do it (G-003), and use, ***widen*** or ***wrap*** it; never grow an unrelated block.
@@ -36,6 +36,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. With a brief, the brief names the owner and its count of other copies, from the architect's survey; you confirm both by reading the owner, its callers and its tests, and you report any other copy you meet. With a direct request, you find the owner and count the copies yourself.
   3. Before editing, read the owner's whole file and its contract tests, in pieces if a tool cuts the output, until you reach the end. Find its callers by searching for the owner's name (for example `git grep -n NAME`). With a brief, that is the only search you make; with a direct request, also search for other copies, which rarely carry the owner's name (Example 2).
   4. If you find another copy, stop and report it before changing the owner, because the copies would drift apart. With a brief, never search for copies yourself; the architect's survey did that.
+  5. **One writer, one reader, one typed object.** Each stored or passed structure has one module that writes it and one that reads it, and travels as a declared type (a dataclass or a schema), never a loose dictionary read by key. Settings are its most common case (G-020 sub-point 2).
 - **G-049 Keep one map of the library.**
   1. The project keeps one map of its pieces: for each behaviour, its owning module, that module's contract (inputs and outputs), its callers and its tests. Import edges are generated from the code, never written by hand.
   2. The map is what lets a change be checked by what it touched: the ***selector*** reads it to choose the tests a change can affect (G-025), and a reviewer reads it to find the owner (G-003) and to judge whether a piece is reusable (G-001).
@@ -45,11 +46,12 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. A second path exists only as a conscious, reasoned decision that Joe approves. Before asking, do the work that would convince you it is necessary: show why the owner cannot be extended, widened or wrapped, and have that case tested by a cold reader, a red team or higher-effort reasoning. Bring Joe the case, what the second path costs, and that review. A request without that work is not a request; it is a stop on your own plan.
   3. An approved second path is recorded at its owner, with its reason, the approval and a test that pins the difference, and is kept narrow.
   4. A second path found without that record is reported as a debt for removal. It stays only if it passes sub-point 2.
+  5. A cache is not a second path when it is keyed on its source, rebuilt from it, and gives a result identical to a fresh computation, its own record included. A cache that can outlive or disagree with its source is one.
 - **G-006 Remove the possibility, one layer up.** (Example 3)
   1. Before adding a flag, mode or special case, ask whether a higher level removes the problem. The caller sets ***policy***; a called module only checks its inputs.
   2. Pass what a step needs as an argument; never rely on the order of calls.
   3. Add a registry (a list of interchangeable cases) only at the second real case. Then a new case is one file plus one line in the list. A wrapper calls the original; it never copies it.
-- **G-016 Never guard behaviour with a list of names.** To stop something being used, remove it; otherwise declare the contract and test the behaviour. (Example 4)
+- **G-016 Never guard behaviour with a list of names.** To stop something being used, remove it; otherwise declare the contract and test the behaviour. A name-list guard that already exists is a debt: it may only shrink, and a behaviour test is planned to replace it. (Example 4)
 - **G-010 Portable and one-way.**
   1. Dependencies point one way: lower layers never import higher ones. The dependency map is generated from the imports, never written by hand.
   2. Code names no absolute path, home folder, user name, operating system or storage service. It reads locations the project declares (settings or the environment), and one function picks the device (CPU or GPU).
@@ -62,6 +64,8 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. Validate input before computing; a contract mismatch is an error, never a warning.
   2. Bad input from outside the project's code (a person, a file, another program) is refused in one plain sentence that says what to do. A fault only the project's code can cause raises a contract error: an exception, for programmers, that names the broken contract.
   3. An output records its own type and version.
+  4. A warning, stale or degraded state is carried and shown as itself. Reporting it as success, or turning every warning into an error to be rid of it, is a defect.
+  5. Every boundary check has a test that feeds it a wrong input and expects the refusal, beside the test that it passes good input.
 - **G-015 Forward only.**
   1. No alias, shim or compatibility switch. The new path deletes the old in the same change. The one exception is the gate's own protocol (C-015).
   2. Every caller changes with it, in the same change; never leave a caller broken. With a brief, the brief lists every caller, and a missing one is a stop. With a direct request, find every caller yourself.
@@ -76,7 +80,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. Settings are typed, versioned objects. One module writes them and one parses them; other code receives the typed object and reads its fields, never string keys.
   3. A domain choice has no default. A missing value means what its declaration says (for example "not chosen"), never a silent fill.
   4. If you are unsure whether a value is domain or technical, treat it as domain: give it no default, and ***ask***. This is a question in your hand-in, not a stop.
-- **G-045 No secrets in the open.** No credential (password, token, key) appears in code, logs, briefs or reports. Read it from where the project declares it.
+- **G-045 No secrets in the open.** No credential (password, token, key) appears in code, logs, briefs or reports. Read it from where the project declares it. A tool that executes commands taken from documents can only read, and runs only the commands on its allowlist.
 
 ## Fixing and proving
 
@@ -145,6 +149,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. A correction made twice becomes a check. The check tests the behaviour (never a list of names, G-016), runs only on the files its rule covers, and prints the rule's id and reason.
   2. A rule no check can enforce names who judges it.
   3. Each decision has one current entry in the register, revised or retired in place.
+  4. Each entry says how its rule is held, in one of four words: **checked** (a check fails when it is broken), **partly** (a check misses the recurring failure), **to build** (no check yet) or **judgment** (a named person checks it).
 - **G-048 General rules here; project rules in the project.**
   1. These pages hold only engineering rules that hold on any project. A rule shared by the projects of one domain (science, for example) belongs in that domain's opt-in set in this repository (`domains/`). A rule about one project (its data, models, instruments, names, paths, tools or tests) belongs in that project's own rules page. Neither goes here.
   2. Every project keeps its own rules page, listed on its start page. It holds only what is specific to that project: what its foundational pieces are (G-001 sub-point 7), its owners and commands, its names, paths and tests, and its domain contracts. Each entry names the G rule it refines and never restates it (G-038).
@@ -162,6 +167,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
 - **Brief:** the task an architect gives a worker. Its parts are defined once, in OPERATING_MODEL C-003.
 - **Contract:** a module's declared inputs, outputs and refusals.
 - **Gate:** the full check a change must pass before it **lands** (joins the main line).
+- **Governing document:** a page of rules or decisions (these pages, a project's start page, rules page and register). Only an architect changes one; contract and reference documents change with the code, in the same change, by whoever changes it (G-038).
 - **Guard:** a test that refuses a forbidden form in the code.
 - **Layer:** a level in the project's declared stack (for example: files, core data, computing, display).
 - **Owner:** the one module that implements a behaviour; a **data owner** is the person responsible for some data.

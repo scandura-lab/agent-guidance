@@ -74,6 +74,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - A list of several-job modules that may only shrink.
   - A change that adds a job to an existing module fails unless it moves that job out.
   - The architect refuses a brief without the extraction.
+- **Incident, sub-point 2:** 11-19, MPN repository: the dataset compile driver was split into four stage modules, each called only by the driver and each still holding its logic; by G-001 sub-point 4 that is a monolith cast to pieces.
 
 ### G-003 · One behaviour, one owner
 **first** 10-05; verification by reading 11-19 · **applies to** all code, exploration included
@@ -93,6 +94,8 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Enforce:**
   - A map with one owner per behaviour; a duplicate owner fails.
   - Each brief names the owner and its count of copies, and the hand-in confirms both.
+- **Words, sub-point 5:** *"One reader, one writer, one structured object"* (10-05); *"Each step has a settings object that cannot drift and one reader and one writer."* (10-16).
+- **Incidents, sub-point 5:** 10-05, a second reader of a stored fact found none of its records; 10-09, a loose metadata dictionary was read by key at 26 sites (microscopy).
 
 ### G-049 · Keep one map of the library
 **first** 10-09 · **applies to** every module
@@ -122,6 +125,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Enforce:**
   - Each known second path is a debt with an open removal task, and fails when the task closes.
   - A scan for identical function bodies.
+- **Incident, sub-point 5:** 11-19, MPN repository: a build read from its cache recorded different source-read counts from a rebuild of the same code, so the cached record was not the one a rebuild writes.
 
 ### G-006 · Remove the possibility, one layer up
 **Absorbs** G-008, G-009, G-011 · **first** 08-21 · **applies to** all design
@@ -154,6 +158,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 11-19, behaviour test: the "nobody calls the old function again" trap fell in 2 of 3 draft-2 runs. Both failed runs wrote a name search *as their witness*, because G-023 then demanded a witness that fails on the base. The cause was G-023, not this rule's place on the page; draft 4 fixes G-023 (sub-points 2 and 4).
 - **Why:** a name list guards one spelling of a defect. A check whose subject is the words themselves (shared code names no study) tests a vocabulary contract, not behaviour, and is allowed.
 - **Enforce:** list every guard whose subject is a list of retired names, as a debt that may only shrink.
+- **Incident, debts:** 11-19, census: four live name-list guards in the microscopy repository; in MPN, an outcome-name scan with an acknowledgement list, and a function-length test with a name allowlist.
 
 ### G-010 · Portable and one-way
 **Absorbs** G-034, G-035 · **first** 08-04 · **applies to** product code and tools
@@ -184,6 +189,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Each storing path has a wrong-contract test.
   - Committed schemas are compared on every run.
   - A known refusal is one sentence.
+- **Incidents, sub-points 4 and 5:** pass-only tests left boundaries unproved (microscopy, R-012); the MPN contract requires warning, stale and degraded states to be preserved as themselves, because normalising one to success hid failures.
 
 ### G-015 · Forward only
 **first** n.r.; callers in the brief 11-19 · **applies to** code and stored records
@@ -245,6 +251,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 **first** 11-19 (architect's ruling, on a red-team finding) · **applies to** code, logs, briefs, reports
 - **Incidents (0):** none recorded. The rule is preventive; a repository holds storage credentials.
 - **Enforce:** a secret scanner over committed files and logs.
+- **Why, tools that run document text:** a document is untrusted input to such a tool; the MPN contract requires an allowlist, a read-only tool and stopping its whole process group on timeout, because killing the shell left its children running.
 
 ### G-017 · Fix the cause in its owner
 **first** 08-21; escapes listed 11-19 · **applies to** all code and tests
@@ -394,6 +401,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Citations resolve.
   - A document change runs the tests that read it.
   - An entry's time may not be later than its commit.
+- **Incident, governing document:** 11-19: the operating model let only the architect change a governing document while G-038 sub-point 3 told the worker to update documents in the same change; the term had no definition.
 
 ### G-042 · Corrections become checks
 **Absorbs** G-043 · **first** 11-19 · **applies to** registers, checks, agent memory
@@ -407,6 +415,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - A register guard requires unique ids.
   - Each check exists and prints its id.
   - A retired entry names its replacement.
+- **Incident, sub-point 4:** 11-19: the microscopy repository defined these four words for its own register while MPN used none; one vocabulary lets a reader compare registers.
 
 ### G-048 · General rules here; project rules in the project
 **first** 11-19 · **applies to** these pages and every project's rules page
