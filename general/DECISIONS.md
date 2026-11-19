@@ -114,7 +114,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - The gate regenerates the import edges, and they must match the map.
   - A touched module that declares no inputs or outputs fails.
 
-### G-004 · A second path is a defect
+#
+- **Incident, sub-point 5:** 11-19, MPN repository: a build read from its cache recorded different source-read counts from a rebuild of the same code, so the cached record was not the one a rebuild writes.
+
+## G-004 · A second path is a defect
 **first** 10-07 · **applies to** all code
 - **Words:**
   - *"parallel paths should not be possible without approval at the highest levels … this MUST BE a conscious and reasoned decision"* (10-07).

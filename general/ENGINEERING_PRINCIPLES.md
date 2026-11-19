@@ -47,6 +47,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. A second path exists only as a conscious, reasoned decision that Joe approves. Before asking, do the work that would convince you it is necessary: show why the owner cannot be extended, widened or wrapped, and have that case tested by a cold reader, a red team or higher-effort reasoning. Bring Joe the case, what the second path costs, and that review. A request without that work is not a request; it is a stop on your own plan.
   3. An approved second path is recorded at its owner, with its reason, the approval and a test that pins the difference, and is kept narrow.
   4. A second path found without that record is reported as a debt for removal. It stays only if it passes sub-point 2.
+  5. A cache is not a second path when it is keyed on its source, rebuilt from it, and gives a result identical to a fresh computation, its own record included. A cache that can outlive or disagree with its source is one.
 - **G-006 Remove the possibility, one layer up.** (Example 3)
   1. Before adding a flag, mode or special case, ask whether a higher level removes the problem. The caller sets ***policy***; a called module only checks its inputs.
   2. Pass what a step needs as an argument; never rely on the order of calls.
