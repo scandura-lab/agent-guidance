@@ -82,7 +82,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. Settings are typed, versioned objects. One module writes them and one parses them; other code receives the typed object and reads its fields, never string keys.
   3. A domain choice has no default. A missing value means what its declaration says (for example "not chosen"), never a silent fill.
   4. If you are unsure whether a value is domain or technical, treat it as domain: give it no default, and ***ask***. This is a question in your hand-in, not a stop.
-- **G-045 No secrets in the open.** No credential (password, token, key) appears in code, logs, briefs or reports. Read it from where the project declares it.
+- **G-045 No secrets in the open.** No credential (password, token, key) appears in code, logs, briefs or reports. Read it from where the project declares it. A tool that executes commands taken from documents can only read, and runs only the commands on its allowlist.
 
 ## Fixing and proving
 

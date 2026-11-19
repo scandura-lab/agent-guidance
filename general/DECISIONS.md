@@ -264,7 +264,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Refuse module constants on an execution path.
   - Refuse by-key reads outside the owner.
 
-### G-045 · No secrets in the open
+#
+- **Why, tools that run document text:** a document is untrusted input to such a tool; the MPN contract requires an allowlist, a read-only tool and stopping its whole process group on timeout, because killing the shell left its children running.
+
+## G-045 · No secrets in the open
 **first** 11-19 (architect's ruling, on a red-team finding) · **applies to** code, logs, briefs, reports
 - **Incidents (0):** none recorded. The rule is preventive; a repository holds storage credentials.
 - **Enforce:** a secret scanner over committed files and logs.
