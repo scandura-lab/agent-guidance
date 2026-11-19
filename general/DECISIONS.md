@@ -174,7 +174,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - Import the core with no display.
   - Refuse product imports from scripts, and refuse upper bounds that name no breakage.
 
-### G-014 · Check at every boundary
+#
+- **Incidents, sub-points 4 and 5:** pass-only tests left boundaries unproved (microscopy, R-012); the MPN contract requires warning, stale and degraded states to be preserved as themselves, because normalising one to success hid failures.
+
+## G-014 · Check at every boundary
 **Absorbs** G-021 · **first** n.r. · **applies to** every path that reads, stores or replaces data
 - **Incidents (5):**
   - Six hand-drawn annotations were destroyed while every test passed.

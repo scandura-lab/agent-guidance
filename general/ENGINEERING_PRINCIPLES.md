@@ -63,6 +63,8 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   1. Validate input before computing; a contract mismatch is an error, never a warning.
   2. Bad input from outside the project's code (a person, a file, another program) is refused in one plain sentence that says what to do. A fault only the project's code can cause raises a contract error: an exception, for programmers, that names the broken contract.
   3. An output records its own type and version.
+  4. A warning, stale or degraded state is carried and shown as itself. Reporting it as success, or turning every warning into an error to be rid of it, is a defect.
+  5. Every boundary check has a test that feeds it a wrong input and expects the refusal, beside the test that it passes good input.
 - **G-015 Forward only.**
   1. No alias, shim or compatibility switch. The new path deletes the old in the same change. The one exception is the gate's own protocol (C-015).
   2. Every caller changes with it, in the same change; never leave a caller broken. With a brief, the brief lists every caller, and a missing one is a stop. With a direct request, find every caller yourself.
