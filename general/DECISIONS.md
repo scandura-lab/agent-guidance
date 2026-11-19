@@ -94,6 +94,19 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - A map with one owner per behaviour; a duplicate owner fails.
   - Each brief names the owner and its count of copies, and the hand-in confirms both.
 
+### G-049 · Keep one map of the library
+**first** 10-09 · **applies to** every module
+- **Words:**
+  - *"If we had a parquet writer module, this change would be to change that module and we'd be done b/c everyone used it."* (10-09).
+  - *"the ask for modularity tied to testing and a function library to allow more streamlined testing of "what was touched" and maintenance of that library/tree to make sure new functions or updated functions are correct"* (11-19, naming this as general engineering).
+- **Incidents (3):**
+  - 10-09: one write format was spread over 12 files, so a one-module change became a 98-file cutover.
+  - 11-19, microscopy census: 299 of 780 mapped modules declared no inputs or outputs.
+  - 11-19, MPN repository: with no module map, the selector chose 592 of 631 test files for a change to one compile module.
+- **Enforce:**
+  - The gate regenerates the import edges, and they must match the map.
+  - A touched module that declares no inputs or outputs fails.
+
 ### G-004 · A second path is a defect
 **first** 10-07 · **applies to** all code
 - **Words:**
