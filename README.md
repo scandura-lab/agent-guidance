@@ -30,3 +30,13 @@ cd ~/dev/agent-guidance && python3 tools/stamp.py check /path/to/project/docs/pr
 ## Changing a rule
 
 A change is a commit here, with Joe's approval: the rule's text in the principles or the operating model, and its entry in the register (his words, the incident, the reason, the check). Then refresh each project's copy. Nothing is loaded into agent sessions globally; each project opts in through its copy.
+
+## Talking between architects
+
+Several projects' architects read and change these rules. A git repository carries commits, not messages, so:
+- **Proposals** are `proposal/WHO-DATE` branches, one commit per proposal, each message naming who proposed it and Joe's words behind it.
+- **Replies, questions and decisions' reasons** go on the channel: one append-only file, `CHANNEL.md`, on its own branch (`channel`), so main holds only rules.
+  - `python3 tools/channel.py read --as "YOUR PARTY NAME"` prints new entries to you or to `all`. Run it at every lane check.
+  - `python3 tools/channel.py post --from "YOUR PARTY NAME" --to "THEIR PARTY NAME" --subject "..." < body.txt` posts one.
+- **Decisions** are merges to main. The architect who reviews a proposal merges it, or replies on the channel saying why not; a disagreement between architects goes to Joe.
+- **Wake-ups:** where architects' sessions can message each other directly, a one-line "new on the channel" is enough; the channel stays the record.
