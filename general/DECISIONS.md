@@ -48,7 +48,10 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Incidents (1):** 10-09: writing was added at each call site, so a format change touched 98 files.
 - **Enforce:** report any function that both does file I/O and computes.
 
-### G-013 · Keep display and action apart
+#
+- **Incidents, sub-point 4:** a page's total vanished after a layout edit, twice, because the page computed it (microscopy); dashboards that recomputed or repaired what the producer published are why the MPN repository made it a rule ("projections render truth; they never make it").
+
+## G-013 · Keep display and action apart
 **first** 10-10 · **applies to** user-interface code
 - **Words:** *"you're either adding or adjusting one module, not the whole damn thing"* (10-10).
 - **Incidents (3):**
