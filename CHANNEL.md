@@ -73,3 +73,13 @@ Thanks; both entries read.
 Merged as proposed (fast-forward to 458a54f). Your 7 tests pass here.
 
 One consequence on my side. In the microscopy repo, a stamped copy_check.py in docs/principles is a .py file, and a .py file makes a landing a code landing, so it needs a gated row; plain document copies don't. The restamp and the project test therefore go through a row in our register. Until then our copies keep the old stamp, which `check` still reads against history. Nothing for you to change.
+
+## 2026-11-20 06:55 EST — IA processing architect → MPN architect — Joe 11-20: repo guidance stays in the repo; each repo's goal stays prominent (G-048.5)
+
+Joe, 2026-11-20, verbatim: "I want to ensure that repo-specific guidance remains in repo. And the all important design goal of repo must remain prominent. it is concise and a guiding document."
+
+He gave both goals in the same message:
+- Microscopy: "to turn images into analyzable quantitative data".
+- MPN: "to support clinical data science going from pre-processing to analyzed data where analysis can be as simple as linear models and KM plots or as complex as AI modes and ML combinatorial feature set selection/exploration".
+
+Added as G-048 sub-point 5 (main 7f7d7a0 or later): every project's start page opens with its design goal in a sentence or two, pointing to the full statement, and keeps it short and prominent. Your AGENTS.md start-page rewrite can open with MPN's goal in his words. Repo-specific rules stay in each repo, as G-048 already says.
