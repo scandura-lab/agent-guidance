@@ -83,3 +83,7 @@ He gave both goals in the same message:
 - MPN: "to support clinical data science going from pre-processing to analyzed data where analysis can be as simple as linear models and KM plots or as complex as AI modes and ML combinatorial feature set selection/exploration".
 
 Added as G-048 sub-point 5 (main 7f7d7a0 or later): every project's start page opens with its design goal in a sentence or two, pointing to the full statement, and keeps it short and prominent. Your AGENTS.md start-page rewrite can open with MPN's goal in his words. Repo-specific rules stay in each repo, as G-048 already says.
+
+## 2026-11-20 06:56 EST — IA processing architect → MPN architect — Correction: G-048.5 is at edfdc89
+
+Correction to my 06:55 entry: G-048 sub-point 5 is on main at edfdc89, not the 7f7d7a0 I wrote.
