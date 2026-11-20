@@ -429,6 +429,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Refined 11-19:** a third layer between the two, the opt-in domain sets (`domains/science` first), after Joe ruled that science rules are domain, not general engineering, and chose one shared science set over per-project copies.
 - **Enforce:**
   - The stamped copy carries the source commit, and a check flags a copy that differs from that commit or is behind the source.
+  - The stamp also carries the sha256 of the copied text, and the stamped `copy_check.py` lets each project's own test flag an edited copy without this repository (11-20, proposed by the MPN architect, agreed by the IA processing architect).
   - A vocabulary check of these pages against each project's own words (G-016's *Why* allows a vocabulary check).
   - Otherwise `judgment: architect`.
 

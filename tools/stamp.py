@@ -4,33 +4,37 @@
 What it does: `into DEST [--with SET ...]` writes the general pages (general/ENGINEERING_PRINCIPLES,
 DECISIONS and OPERATING_MODEL) into the folder DEST, plus each opt-in set named (for example
 `--with science`: domains/science/SCIENCE_PRINCIPLES and SCIENCE_DECISIONS), each under one stamp
-line naming this repository's commit; `check DEST [--with SET ...]` reports, for each copy, whether
-it is current, behind the source, or edited in place (G-048).
+line naming this repository's commit and the sha256 of the copied text, plus a stamped copy of
+`tools/copy_check.py`, which lets the project's own test detect an edit with no clone of this
+repository; `check DEST [--with SET ...]` reports, for each copy, whether it is current, behind the
+source, or edited in place (G-048).
 Where it fits: the one door between this repository and a project's copy. It reads this
 repository's git history and writes only DEST. Called by an architect from a clone of this
 repository.
 
 A copy is: the project's own header lines (kept as they are, for example a document-tier line),
 then the stamp line, a blank line, and the source page byte for byte. Lines above the stamp are
-the project's; everything below it belongs to the source.
+the project's; everything below it belongs to the source. A stamp written before stamps carried a
+sha256 still checks, against this repository's history, until it is restamped.
 
 Exit status: 0 current; 1 a refusal or a copy edited in place or missing; 2 a copy behind the source.
 """
 from __future__ import annotations
 
 import argparse
-import re
 import subprocess
 import sys
 from pathlib import Path
+
+from copy_check import body_digest, split_copy, stamp_line
 
 SETS = {
     "general": ("general/ENGINEERING_PRINCIPLES.md", "general/DECISIONS.md", "general/OPERATING_MODEL.md"),
     "science": ("domains/science/SCIENCE_PRINCIPLES.md", "domains/science/SCIENCE_DECISIONS.md"),
 }
+#: Copied with every set, so a project can check its copies without this repository.
+CHECKER = "tools/copy_check.py"
 REPO = Path(__file__).resolve().parent.parent
-STAMP = re.compile(r"^Copied from agent-guidance (?P<page>\S+) at (?P<sha>[0-9a-f]{12}) \((?P<date>\d{4}-\d{2}-\d{2})\)\. ")
-STAMP_TAIL = "Do not edit here; propose changes to that repository."
 
 
 def git(*args: str) -> str:
@@ -53,54 +57,50 @@ def last_commit(page: str) -> str:
     return sha
 
 
-def split_copy(text: str) -> tuple[list[str], re.Match | None, str]:
-    """(project header lines, stamp match, body below the stamp and its blank line)."""
-    lines = text.split("\n")
-    for i, line in enumerate(lines):
-        m = STAMP.match(line)
-        if m:
-            rest = lines[i + 1 :]
-            if rest and rest[0] == "":
-                rest = rest[1:]
-            return lines[:i], m, "\n".join(rest)
-    return [], None, text
-
-
 def into(dest: Path, sets: list[str]) -> int:
-    if git("status", "--porcelain", "--", "general", "domains").strip():
-        print("REFUSED: general/ or domains/ has uncommitted changes; commit them first, so the stamp names the text", file=sys.stderr)
+    if git("status", "--porcelain", "--", "general", "domains", CHECKER).strip():
+        print(f"REFUSED: general/, domains/ or {CHECKER} has uncommitted changes; commit them first, so the stamp names the text", file=sys.stderr)
         return 1
     if not dest.is_dir():
         print(f"REFUSED: {dest} is not a folder", file=sys.stderr)
         return 1
-    for page in pages(sets):
+    for page in [*pages(sets), CHECKER]:
         sha = last_commit(page)
         date = git("log", "-1", "--format=%cs", sha).strip()
         body = git("show", f"{sha}:{page}")
         target = dest / Path(page).name
         header: list[str] = []
         if target.exists():
-            header, stamp, _ = split_copy(target.read_text())
+            header, stamp, _ = split_copy(target.read_text(encoding="utf-8"))
             if stamp is None:
                 print(f"REFUSED: {target} exists without a stamp line; move it aside or add the stamp by hand first", file=sys.stderr)
                 return 1
-        stamp_line = f"Copied from agent-guidance {page} at {sha[:12]} ({date}). {STAMP_TAIL}"
-        target.write_text("\n".join([*header, stamp_line, "", body]) if header else "\n".join([stamp_line, "", body]))
+        line = stamp_line(page, sha, date, body, comment=page.endswith(".py"))
+        target.write_text("\n".join([*header, line, "", body]), encoding="utf-8")
         print(f"STAMPED {target} at {sha[:12]}")
     return 0
 
 
 def check(dest: Path, sets: list[str]) -> int:
     worst = 0
-    for page in pages(sets):
+    again = "".join(f" --with {n}" for n in sets)
+    for page in [*pages(sets), CHECKER]:
         target = dest / Path(page).name
         if not target.exists():
+            if page == CHECKER:
+                print(f"BEHIND {target}: missing (stamped before {CHECKER} was copied); run: python3 tools/stamp.py into {dest}{again}")
+                worst = max(worst, 2) if worst != 1 else 1
+                continue
             print(f"MISSING {target}")
             worst = 1
             continue
-        _, stamp, body = split_copy(target.read_text())
+        _, stamp, body = split_copy(target.read_text(encoding="utf-8"))
         if stamp is None or stamp["page"] != page:
             print(f"NO STAMP {target}: not a copy this tool made")
+            worst = 1
+            continue
+        if stamp["digest"] is not None and body_digest(body) != stamp["digest"]:
+            print(f"EDITED IN PLACE {target}: the text no longer matches the stamp's sha256; propose the change here instead")
             worst = 1
             continue
         stamped = stamp["sha"]
@@ -117,7 +117,6 @@ def check(dest: Path, sets: list[str]) -> int:
         latest = last_commit(page)
         if not latest.startswith(stamped):
             behind = git("rev-list", "--count", f"{stamped}..{latest}", "--", page).strip()
-            again = "".join(f" --with {n}" for n in sets)
             print(f"BEHIND {target}: stamped {stamped}, source {latest[:12]} ({behind} commit(s) to {page}); run: python3 tools/stamp.py into {dest}{again}")
             worst = max(worst, 2) if worst != 1 else 1
             continue
