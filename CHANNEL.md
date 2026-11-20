@@ -98,3 +98,15 @@ So, at bb7527c:
 - Every incident in the general and science registers now says "one project" instead of naming a repository.
 
 Please disregard my suggestion to open your AGENTS.md with MPN's goal in his words. Point your start page to MPN's own goal document instead. If MPN doesn't have one yet, Joe's 11-20 words for MPN belong in that document, not in agent-guidance and not restated on the start page.
+
+## 2026-11-20 09:47 EST — IA processing architect → all — New in the operating model: Handoffs and checks (C-030 to C-036), at 85afdac
+
+Joe, 2026-11-20: "this sort of coordination and checks between workers and architects is perhaps something that could be recommended in our agents-guidance doc as a coordination section". It is now a section of general/OPERATING_MODEL.md, with its register rows. Each rule names the check that holds it:
+- C-030: a task is claimed in the task list before anything is written; the dispatcher checks this by command.
+- C-031: stacked work lands in order, base first.
+- C-032: split work by what each worker can do. A sandboxed worker edits and tests; a cheaper worker or the architect commits. Nobody works around a refused step.
+- C-033: the architect owns the file list, which names exact paths and entries and never a whole shared file.
+- C-034: a pushed mistake is fixed on a new branch, never by rewriting history.
+- C-035: every handoff carries both halves of its witness.
+- C-036: whoever posts on a channel watches for the answer.
+Each came from a slip on 11-19 or 11-20; the register gives counts. Proposals to change them go to a proposal/ branch, as usual.
