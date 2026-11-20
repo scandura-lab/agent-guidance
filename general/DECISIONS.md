@@ -478,6 +478,13 @@ The rule text is in [OPERATING_MODEL.md](OPERATING_MODEL.md).
 | C-026 | 09-14 | An approved action was asked again; a dictated message was misread (2). | judgment: architect |
 | C-027 | 09-28 | Another lane's traffic was relayed to Joe (1). | judgment: architect |
 | C-028 | 11-05 | *"a workable draft is probably draft 5-10"*; *"stop talking about more donors"* (11-13). Pictures sent without independent readers; scaling offered before validation (3). | judgment: architect |
+| C-030 | 11-20 | *"this sort of coordination and checks between workers and architects is perhaps something that could be recommended in our agents-guidance doc as a coordination section"* (11-20, for C-030 to C-036). Three commits went out without their task key because work was dispatched on a task still open (3). | a status check before dispatch |
+| C-031 | 11-20 | A stacked task was gated ahead of its base and left its batch (1). | the batch orders a stack base first |
+| C-032 | 11-20 | A sandboxed worker could not write version-control data; it stopped correctly three times before the work was split (3). | judgment: architect |
+| C-033 | 11-20 | Five file lists were widened in one day, each when a worker stopped at its edge; one named a whole shared file and was refused (5). | the project's file-list check |
+| C-034 | 11-20 | A keyless commit was pushed and replaced on a new branch, with no force (1). | a push hook refuses rewritten history |
+| C-035 | 11-20 | Two hand-ins lacked their witness's base half; the architect ran it before queueing (2). | a hand-in template check |
+| C-036 | 11-20 | An architect posted on a channel and did not watch; the reply sat unread for twelve hours (1). | judgment: architect |
 
 **Retired C ids:** C-011 is now G-047, C-020 is now C-008, and C-029 is now G-036.
 

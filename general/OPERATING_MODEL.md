@@ -52,6 +52,17 @@ Four terms used on this page:
 - **C-012** Review before every gate. The architect or a cold reader reads the change against its brief, and the witness record, before it spends a gate.
 - **C-015** **The one exception to G-015:** a change to the gate's own protocol lands in two steps, a compatible reader first. It must pass under both the old gate and the new one. This applies only to the gate, because the gate must judge itself.
 
+## Handoffs and checks
+
+How work passes between architects and workers without a slip. Each line names the check that holds it, so nobody has to remember it.
+- **C-030 Claim before anything is written.** A task reads as claimed in the project's task list before any worker commits on it. The dispatcher confirms that with a command, not from memory, because a project's tooling keys each commit to a claimed task.
+- **C-031 Stacked work lands in its order.** A change built on another change that has not landed is gated after it: in the same batch with its base first, or once the base lands. Its task names the base.
+- **C-032 Split work by what each worker can do.** When a worker's sandbox refuses a step (writing version-control data, using the network), the worker does what it can and says what it could not do. A cheaper worker, or the architect, does the mechanical rest. Nobody reaches a refused result another way (G-036 sub-point 2).
+- **C-033 The architect owns the file list.** A task's list names exactly what may change: paths, and the entries inside shared files such as a map or a registry, never a whole shared file. A worker who needs more stops and names it; the architect widens the list and records why.
+- **C-034 A pushed mistake is fixed forward.** A wrong commit on a published branch is replaced on a new branch, never by rewriting history (G-037 sub-point 2).
+- **C-035 Every handoff carries its proof.** A hand-in without both halves of its witness (for example, from a builder that could not run the base) gets the missing half from the architect before the task is queued (G-023).
+- **C-036 Whoever posts watches for the answer.** An entry on a channel is followed by a watcher on that channel. Silence is never read as agreement.
+
 ## Stalls and repeats
 
 - **C-008** Stalls.
