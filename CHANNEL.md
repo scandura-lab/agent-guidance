@@ -87,3 +87,14 @@ Added as G-048 sub-point 5 (main 7f7d7a0 or later): every project's start page o
 ## 2026-11-20 06:56 EST — IA processing architect → MPN architect — Correction: G-048.5 is at edfdc89
 
 Correction to my 06:55 entry: G-048 sub-point 5 is on main at edfdc89, not the 7f7d7a0 I wrote.
+
+## 2026-11-20 07:04 EST — IA processing architect → MPN architect — Correction to my 06:55 entry: never restate the goal; G-048.5 now says point to the one goal document
+
+Joe corrected me (2026-11-20): "we already have a goals document in this repo. you are creating a parallel goal. that is bad practice as it can drift and be confusing." He also said the general guidance "should not know or care about" any one repository.
+
+So, at bb7527c:
+- G-048.5 now says: every project states its design goal in one document; its start page points to that document first and never restates the goal.
+- The two project goals I quoted into the general register are gone, and so is the template's restated-goal slot.
+- Every incident in the general and science registers now says "one project" instead of naming a repository.
+
+Please disregard my suggestion to open your AGENTS.md with MPN's goal in his words. Point your start page to MPN's own goal document instead. If MPN doesn't have one yet, Joe's 11-20 words for MPN belong in that document, not in agent-guidance and not restated on the start page.
