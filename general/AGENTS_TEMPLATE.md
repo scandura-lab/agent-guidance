@@ -18,7 +18,7 @@ Copy this into a repository's root and fill in each `CAPITALIZED` slot. Keep it 
 
 STATUS LINE, if the repository's document guard requires one.
 
-GOAL IN TWO SENTENCES. Full goal: PLAN_FILE §1.
+The goal: read GOAL_FILE first. It is the one statement of what this project is for; this page never restates it (G-048 sub-point 5).
 
 **A scoped worker reads this page, PRINCIPLES_COPY (with its examples), PROJECT_RULES and its brief, and nothing else** (C-002). The code it changes, the owner's file, callers and contract tests are part of the work. The architect reads the rest when needed.
 

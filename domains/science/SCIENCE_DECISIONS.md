@@ -2,7 +2,7 @@
 
 The record behind [SCIENCE_PRINCIPLES.md](SCIENCE_PRINCIPLES.md) (the S rules), in the same form as the general register (`DECISIONS.md`): Joe's words, the incidents, the reason and the check. Ids are never reused. All dates are 2026.
 
-**Why this set exists (11-19).** Joe ruled that *"rules like 'don't make scientific decisions' belong to the data-science / analysis domain, not to general engineering"* (recorded by the MPN architect when it withdrew a proposed general rule, agent-guidance commit 8631adc), and chose a shared, opt-in science set over keeping science rules in each repository, so the science projects do not drift apart. S-001 holds what was G-019 sub-points 2 and 4.
+**Why this set exists (11-19).** Joe ruled that *"rules like 'don't make scientific decisions' belong to the data-science / analysis domain, not to general engineering"* (recorded by a project's architect when it withdrew a proposed general rule, commit 8631adc), and chose a shared, opt-in science set over keeping science rules in each repository, so the science projects do not drift apart. S-001 holds what was G-019 sub-points 2 and 4.
 
 ### S-001 · Science choices are the scientist's
 **first** 09-10 (as part of G-019); its own set 11-19 · **applies to** design, settings, reports, briefs
@@ -20,8 +20,8 @@ The record behind [SCIENCE_PRINCIPLES.md](SCIENCE_PRINCIPLES.md) (the S rules), 
   - Design talk: `judgment: architect, then Joe`.
 
 ### S-002 · Where science has one answer, the software enforces it
-**first** 08-10 (MPN repository); shared 11-19 · **applies to** selection, splits, evaluation, recorded values
-- **Words:** *"this is not a user option. it is bad science. the repo must enforce doing good science."* (08-10, MPN repository, ruling that selecting on test-set metrics stays banned).
+**first** 08-10 (one project); shared 11-19 · **applies to** selection, splits, evaluation, recorded values
+- **Words:** *"this is not a user option. it is bad science. the repo must enforce doing good science."* (08-10, ruling in one project that selecting on test-set metrics stays banned).
 - **Incidents (1):** 11-19, cross-repository review: S-001 alone read as letting a person declare a leaky split, and a project rule ("never forbids one") contradicted that project's own held-out-split checks.
 - **Why:** an output labelled "held-out" or "measured" that is not is false, whatever anyone declared. Naming the label keeps the rule from growing into a general refusal of choices (S-001).
 - **Enforce:** each enforcement names the label it keeps true, in its refusal.
