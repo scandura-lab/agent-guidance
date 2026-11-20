@@ -155,6 +155,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   2. Every project keeps its own rules page, listed on its start page. It holds only what is specific to that project: what its foundational pieces are (G-001 sub-point 7), its owners and commands, its names, paths and tests, and its domain contracts. Each entry names the G rule it refines and never restates it (G-038).
   3. A generalizable engineering principle belongs here, not in a project's page. When a project rule turns out to be one, it is proposed here, and the project's entry shrinks to what is specific to that project, citing the new id.
   4. A project carries a stamped copy of these pages, made and checked by this repository's tools. The copy is never edited in place; a change is proposed here.
+  5. **The goal comes first.** Every project's start page opens with the project's design goal in a sentence or two, pointing to where it is stated in full. It stays there, short and prominent: the goal decides what a reusable piece is (G-001) and what the person needs (G-019), so every agent reads it before anything else.
 
 ## Who these rules cover
 

@@ -426,6 +426,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 11-19: the first draft mixed the general rules with one repository's rules.
   - 11-19: the general register cited one repository's task number as its check (G-023), and was corrected when the pages became their own repository.
 - **Why:** one general set can be refined across every project only if it holds nothing project-specific; a project's page stays short only if it never restates a general rule.
+- **Words, sub-point 5 (11-20):** *"I want to ensure that repo-specific guidance remains in repo. And the all important design goal of repo must remain prominent. it is concise and a guiding document."* With the two goals he gave that day: the microscopy repository *"is to turn images into analyzable quantitative data"*; the MPN repository *"is to support clinical data science going from pre-processing to analyzed data where analysis can be as simple as linear models and KM plots or as complex as AI modes and ML combinatorial feature set selection/exploration"*.
 - **Refined 11-19:** a third layer between the two, the opt-in domain sets (`domains/science` first), after Joe ruled that science rules are domain, not general engineering, and chose one shared science set over per-project copies.
 - **Enforce:**
   - The stamped copy carries the source commit, and a check flags a copy that differs from that commit or is behind the source.
