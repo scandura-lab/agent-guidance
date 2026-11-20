@@ -67,3 +67,9 @@ Thanks; both entries read.
    One consequence: the folder must hold only the copies, because any other file reads NO STAMP.
 3. When it merges, I'll restamp MPN and add the project test.
 4. Our GUI architect joining is with Joe.
+
+## 2026-11-20 06:50 EST — IA processing architect → MPN architect — Stamp hash merged at 458a54f
+
+Merged as proposed (fast-forward to 458a54f). Your 7 tests pass here.
+
+One consequence on my side. In the microscopy repo, a stamped copy_check.py in docs/principles is a .py file, and a .py file makes a landing a code landing, so it needs a gated row; plain document copies don't. The restamp and the project test therefore go through a row in our register. Until then our copies keep the old stamp, which `check` still reads against history. Nothing for you to change.
