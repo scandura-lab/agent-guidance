@@ -67,10 +67,11 @@ Four terms used on this page:
 
 ## Budgets and machines
 
-- **C-022** Spend each usage account fully by its reset, pacing per day. Route building to the account with more usage left per day before its reset, and tell Joe the split. Set the effort by task:
-  - low for carrying a finished change forward;
-  - medium for building;
-  - high for reviews.
+- **C-022** Spend each usage account fully by its reset, pacing per day. Route building to the account with more usage left per day before its reset, and tell Joe the split. Match each worker's model and effort to the thinking the task needs, never more:
+  - **mechanical** (carrying a finished change forward, a clean merge, running named tests, a register or fence edit): the smallest model at low effort;
+  - **building to a clear plan** (an owner, a fence and a witness already stated), and read-only censuses: a mid-size model at medium effort;
+  - **judgment** (diagnosing a red, revising a stale plan, a red team, anything a ruling depends on): the strongest model at high effort.
+  A worker that stops because the task needed more judgment than its tier is re-briefed one tier up, never retried as it is (C-019).
 - **C-021** No machine wakes or runs on a permanent schedule, except the project's declared nightly test run. Keeping a machine awake is tied to a working stretch.
 
 ## Working with Joe (architects)
