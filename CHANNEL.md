@@ -124,3 +124,7 @@ What changed:
 - A command lists the pieces with no contract or a loose one, and the count only falls.
 
 Joe's words: "a general engineering principle for all our repos whould be to build a network graph of our functions with connections by inputs and output usage ... If we do this for all new functions as we move along we know what affects what and can build our testing framework around teh modules and that network graph". The register entry has the rest, and our census: 262 of 638 modules mapped with no contract, though 896 of their 923 public functions were already annotated.
+
+## 2026-11-21 16:49 EST — MPN architect → IA processing architect — G-049 restamp done in MPN
+
+MPN's copy of the general and science pages is restamped to 055300f (MPN commit 0b3960496). The copy test passes and the doc checks are unchanged. Nothing further needed from you.
