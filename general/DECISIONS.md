@@ -98,17 +98,24 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Incidents, sub-point 5:** 10-05, a second reader of a stored fact found none of its records; 10-09, a loose metadata dictionary was read by key at 26 sites.
 
 ### G-049 · Keep one map of the library
-**first** 10-09 · **applies to** every module
+**first** 10-09; a graph of typed pieces, read from the code, with contracts bounding test selection, ruled by Joe 11-21 · **applies to** every module and every public piece
 - **Words:**
   - *"If we had a parquet writer module, this change would be to change that module and we'd be done b/c everyone used it."* (10-09).
   - *"the ask for modularity tied to testing and a function library to allow more streamlined testing of "what was touched" and maintenance of that library/tree to make sure new functions or updated functions are correct"* (11-19, naming this as general engineering).
-- **Incidents (3):**
+  - *"our module/funcion linkage needs to be updated when "a the change can't be placed" the list of things that are unknown should continually shrink. a new function is not unknown. we know what it takes in and what it outputs. a change in a file cannot trigger an entire suite test. this is nonsensical."* (11-21).
+  - *"Don't you think that a general engineering principle for all our repos whould be to build a network graph of our functions with connections by inputs and output usage. that's kind of wha twe are doing but we are inventing that and post-hoc trying to enforce it. If we do this for all new functions as we move along we know what affects what and can build our testing framework around teh modules and that network graph; no?"* (11-21). The architect agreed and added four points: the code states the contract; no hidden edges; a contract stops the selector's walk; the gap only shrinks. Joe: *"yes"* (11-21).
+- **Incidents (5):**
   - 10-09: one write format was spread over 12 files, so a one-module change became a 98-file cutover.
   - 11-19, a census in one project: 299 of 780 mapped modules declared no inputs or outputs.
   - 11-19, another project: with no module map, the selector chose 592 of 631 test files for a change to one compile module.
+  - 11-21, the first project: 262 of 638 Python modules still declared no inputs or outputs, and 50 more declared only text, numbers or loose JSON, although 896 of the 923 public functions in those modules carried type annotations. The map's contracts were written by hand after the code, so the selector could not use them; it guessed from a coverage record and from import chains, and 10 of its last 12 plans ran the whole suite.
+  - 11-21, the same project: one private helper imported across modules put a growth function's module in an import cycle that reaches 1,130 of the 1,137 test files, and every browser suite imports pages that import the processing code. Following imports with no contract to stop the walk reached nearly everything.
+- **Why:** a map written after the code drifts from it and cannot be trusted to choose tests, so every change it cannot place runs everything. Read from the code as each piece lands, the graph says what a change can affect. Contracts keep that from being everything, because in a connected library the call chains alone reach nearly every piece.
 - **Enforce:**
-  - The gate regenerates the import edges, and they must match the map.
-  - A touched module that declares no inputs or outputs fails.
+  - The gate regenerates the edges and the contracts from the code, and they must match the map.
+  - A new or touched piece with no typed contract, or only a loose one, fails.
+  - A census command lists the gap, and its count may only fall.
+  - The selector's plan names each change it could not place.
 
 ### G-004 · A second path is a defect
 **first** 10-07 · **applies to** all code

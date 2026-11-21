@@ -37,10 +37,14 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
   3. Before editing, read the owner's whole file and its contract tests, in pieces if a tool cuts the output, until you reach the end. Find its callers by searching for the owner's name (for example `git grep -n NAME`). With a brief, that is the only search you make; with a direct request, also search for other copies, which rarely carry the owner's name (Example 2).
   4. If you find another copy, stop and report it before changing the owner, because the copies would drift apart. With a brief, never search for copies yourself; the architect's survey did that.
   5. **One writer, one reader, one typed object.** Each stored or passed structure has one module that writes it and one that reads it, and travels as a declared type (a dataclass or a schema), never a loose dictionary read by key. Settings are its most common case (G-020 sub-point 2).
-- **G-049 Keep one map of the library.**
-  1. The project keeps one map of its pieces: for each behaviour, its owning module, that module's contract (inputs and outputs), its callers and its tests. Import edges are generated from the code, never written by hand.
-  2. The map is what lets a change be checked by what it touched: the ***selector*** reads it to choose the tests a change can affect (G-025), and a reviewer reads it to find the owner (G-003) and to judge whether a piece is reusable (G-001).
-  3. A change that adds or changes a piece updates that piece's entry in the same change. A map that disagrees with the code fails a check.
+- **G-049 Keep one map of the library: a graph of its pieces, joined by what they take and return.**
+  1. The project keeps one map. Its nodes are the project's named pieces (each public function, class and constant), grouped by owning module. Each piece carries its contract, its callers and its tests. Its edges join it to what it calls, and through its types to the pieces that produce or use them. Edges are generated from the code, never written by hand.
+  2. **The code states the contract.** Where the language states types (Python annotations, TypeScript), the map reads each contract from the code. Elsewhere the contract is declared beside the code, and a test checks that the two agree. Each declared type the map names points to the code that defines it. A value with structure travels as a declared type (G-003 sub-point 5); text, a number or loose JSON is not a contract for it.
+  3. **Built as you go.** A new piece lands with its typed contract and its place in the map, in the same change, and a change to a piece updates both. Nothing new joins the gap (sub-point 7). A map that disagrees with the code fails a check.
+  4. **No hidden edges.** A piece reached at run time by name (through a registry, a plugin, a step looked up by name, a server or a child process) is reached through a declared registry that the map reads, so the graph follows the edge.
+  5. **Tests are chosen from the map, and a contract stops the walk.** The ***selector*** (G-025) runs the tests of the pieces a change touched, including the tests that prove each still keeps its contract. While those pass, the pieces downstream are not re-tested; the walk goes on only to the users of a contract the change altered. A change the map cannot place is a gap in the map, closed there, never a reason to run everything. The whole suite still runs on a schedule as the backstop: a downstream failure found there means a contract was incomplete, and the fix goes to that contract and its test.
+  6. A reviewer reads the map to find the owner (G-003) and to judge whether a piece is reusable (G-001).
+  7. **The gap only shrinks.** A command lists the pieces with no contract or only a loose one. Nobody keeps that list by hand (G-016), and its count may only fall. A piece leaves it when a change touches it (sub-point 3) or a task types it.
 - **G-004 A second path is a defect unless Joe approves it.**
   1. Never add a copy, a parallel version or a "temporary" twin by default; extend, widen or wrap the owner (G-002, G-003).
   2. A second path exists only as a conscious, reasoned decision that Joe approves. Before asking, do the work that would convince you it is necessary: show why the owner cannot be extended, widened or wrapped, and have that case tested by a cold reader, a red team or higher-effort reasoning. Bring Joe the case, what the second path costs, and that review. A request without that work is not a request; it is a stop on your own plan.
@@ -166,7 +170,7 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
 - **Ask:** put the question to the architect, in your hand-in.
 - **Base:** the commit your branch starts from.
 - **Brief:** the task an architect gives a worker. Its parts are defined once, in OPERATING_MODEL C-003.
-- **Contract:** a module's declared inputs, outputs and refusals.
+- **Contract:** a piece's declared input and output types and its refusals. The code states it where the language has types (G-049).
 - **Gate:** the full check a change must pass before it **lands** (joins the main line).
 - **Governing document:** a page of rules or decisions (these pages, a project's start page, rules page and register). Only an architect changes one; contract and reference documents change with the code, in the same change, by whoever changes it (G-038).
 - **Guard:** a test that refuses a forbidden form in the code.
