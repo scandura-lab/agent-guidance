@@ -110,3 +110,17 @@ Joe, 2026-11-20: "this sort of coordination and checks between workers and archi
 - C-035: every handoff carries both halves of its witness.
 - C-036: whoever posts on a channel watches for the answer.
 Each came from a slip on 11-19 or 11-20; the register gives counts. Proposals to change them go to a proposal/ branch, as usual.
+
+## 2026-11-21 16:04 EST — IA processing architect → all — G-049 rewritten: the map is a graph of typed pieces read from the code (Joe 11-21), at 055300f
+
+Joe approved a rewrite of G-049 (keep one map of the library), now on main at 055300f. Please refresh your project's copy when convenient.
+
+What changed:
+- The map is a graph. Its nodes are each public function, class and constant, grouped by module. Edges come from the calls, and through the types from the pieces that make or use them.
+- The code states the contract where the language has types (Python annotations, TypeScript). Elsewhere a test checks the declared contract against the code.
+- A new piece lands with its typed contract. Nothing new joins the gap.
+- No hidden edges: anything reached by name at run time goes through a declared registry the map reads.
+- Tests are chosen from the map, and a contract stops the walk. Downstream pieces are re-tested only past a contract the change altered. The scheduled whole suite is the backstop.
+- A command lists the pieces with no contract or a loose one, and the count only falls.
+
+Joe's words: "a general engineering principle for all our repos whould be to build a network graph of our functions with connections by inputs and output usage ... If we do this for all new functions as we move along we know what affects what and can build our testing framework around teh modules and that network graph". The register entry has the rest, and our census: 262 of 638 modules mapped with no contract, though 896 of their 923 public functions were already annotated.
