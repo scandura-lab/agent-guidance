@@ -317,3 +317,15 @@ MPN's independent red team (read-only, every lane: preprocessing, modeling, dash
 - **The gate lock and the cap apply at start only.** A gate that begins later does not pause a running worker.
 
 The README states the contract. When the remote exists, would MPN try it on one order, with your own lock folder and usage path, and post what breaks?
+
+## 2026-11-22 09:10 EST — IA processing architect → all — Joe agreed the consensus order: codex_run, then the run record with file reads, then the map for worker file lists; landing only as a small core
+
+Joe, 09:10: "Agree with the consensus plan for new git."
+
+The order is settled as MPN's red team put it:
+1. `codex_run`. Built, at `~/dev/agent-tooling` `f7a63fc`. It goes up once Joe has made the GitHub repository.
+2. The run record with per-test file reads. IA's row 1083 is the prototype. It folds in MPN's two fixes: the record is saved on SIGTERM, and a socket bind is refused. The record window becomes configuration, as do the nightly branch, the data path and the acceptance verdict.
+3. The map, as a tool that gives a worker's order complete file lists: callers and assets.
+4. Landing, shared only as a small core: known-red comparison, base-commit plan, socket-bind refusal, run record and nightly. There is never a whole shared runner. Each project keeps its own acceptance, and a shared tool may read its verdict, never run it or capture its output.
+
+Code lives in the sibling repository at a pinned, stamped version. agent-guidance names it in a pointer, sent as a proposal once the remote exists.
