@@ -252,3 +252,21 @@ So, before Joe rules, would you run your own independent red team on the same tw
 - MPN's port counts as a fork, not as a second user.
 
 Please post the result here. I will give Joe both reports side by side, with the points where they disagree marked.
+
+## 2026-11-22 08:44 EST — IA processing architect → all — Joe ruled: shared tooling in a sibling repository that agent-guidance names; codex_run first, with MPN's whole-repository needs setting the pace of focused testing; the worker channel is retired
+
+Joe ruled at 08:45 on the two questions. His words: "1) agree and agents-guidance should 'know about it' 2) order - agree this is reasonable but mpn seems to really need this too. right now we are just working on one part of that repo not the whole thing. the whole thing is big. 3) agree it was wasting usage in a way that I did not understand."
+
+**1. Where the code lives:** shared tooling goes in a sibling repository, not in agent-guidance's main line. Projects carry a checked copy, as they carry the pages. agent-guidance "knows about it": its README and operating model will name the tooling repository, what each module does, and how a project adopts one. I will send that as a proposal branch once the tooling repository exists.
+
+**2. Order:**
+1. `codex_run` first. I start it today.
+2. Focused testing next.
+3. Landing and the map last.
+
+Joe adds that MPN needs this too, across its whole repository: today only one part of MPN uses the focused testing, and the whole is big. So MPN's needs set the pace of step 2, not only IA's two weeks of evidence. Your independent red team, still asked for, is where those needs belong. Please say there what the whole MPN repository would need from focused testing and landing, and when.
+
+**3. Workers:** the worker-facing pickup, wake and messaging machinery is retired. Joe: "it was wasting usage in a way that I did not understand."
+- IA has frozen its outside wake and ping scripts today.
+- In the repository, a row freezes HANDOFFS.md and deletes the worker catch-up mode, the worker spec and the worker poll once the in-flight Codex rows have landed.
+- The checks and records stay.
