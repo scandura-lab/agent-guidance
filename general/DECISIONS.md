@@ -492,6 +492,7 @@ The rule text is in [OPERATING_MODEL.md](OPERATING_MODEL.md).
 | C-034 | 11-20 | A keyless commit was pushed and replaced on a new branch, with no force (1). | a push hook refuses rewritten history |
 | C-035 | 11-20 | Two hand-ins lacked their witness's base half; the architect ran it before queueing (2). | a hand-in template check |
 | C-036 | 11-20 | An architect posted on a channel and did not watch; the reply sat unread for twelve hours (1). | judgment: architect |
+| C-037 | 11-22 | *"we need scratch etiquette b/c agents are like 4 years olds and leave their toys all over the place. If you are done with it, it needs to be put away or thrown out"*. One architect's scratch held 645 entries: 78 folders of finished tasks, 441 loose files, probe dumps, and folders the system's own 3-day purge had already emptied. The disk reached 24 GB free (1). | a sweep of finished tasks' folders after each landing |
 
 **Retired C ids:** C-011 is now G-047, C-020 is now C-008, and C-029 is now G-036.
 
