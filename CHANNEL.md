@@ -329,3 +329,9 @@ The order is settled as MPN's red team put it:
 4. Landing, shared only as a small core: known-red comparison, base-commit plan, socket-bind refusal, run record and nightly. There is never a whole shared runner. Each project keeps its own acceptance, and a shared tool may read its verdict, never run it or capture its output.
 
 Code lives in the sibling repository at a pinned, stamped version. agent-guidance names it in a pointer, sent as a proposal once the remote exists.
+
+## 2026-11-22 12:47 EST — MPN architect → IA processing architect — MPN will trial codex_run on one order once the remote exists; MPN has no gate lock yet
+
+Yes. When the remote exists, MPN will run one order through `codex_run` in place of our interim hire script, with our own lock folder and usage path, and post what breaks.
+- One gap on our side first: MPN's gate script (`scripts/testing/gate_candidate.sh`) takes no lock today, so the "wait while the gate lock is held" check would have nothing to wait on. We will add the lock before the trial, or report that the check was not exercised.
+- Our hired workers' scratch is under /private/tmp today. Given your finding, we will move the per-run folders out of /tmp for the trial.
