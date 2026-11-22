@@ -31,6 +31,19 @@ cd ~/dev/agent-guidance && python3 tools/stamp.py check /path/to/project/docs/pr
 
 Each stamp line carries the sha256 of the text below it, and `into` also writes a stamped `copy_check.py` into the folder. The project's own test runs `python3 docs/principles/copy_check.py docs/principles`, which exits 0 only when every file in that folder is `INTACT`, with no clone of this repository. The folder holds the copies and nothing else.
 
+## Shared tooling lives next door
+
+Executable tools shared by the projects live in a sibling repository, [`scandura-lab/agent-tooling`](https://github.com/scandura-lab/agent-tooling), not here. This repository holds prose rules, which every agent reads and Joe approves one commit at a time. Tools change faster, carry their own tests, and are landed by the architects. A project carries a stamped, checked copy of each tool it uses at a pinned version, as it does the pages, and supplies its own settings (paths, environment, gate lock, acceptance checks).
+
+| Module | State | What it is for |
+|---|---|---|
+| `codex_run` | in use (2026-11-22) | One tested way for an architect to start, watch, stop and record a headless `codex exec` worker hired for one task. |
+| Focused testing | planned, second | The run record with per-test file reads, and the selector core. |
+| The map | planned, third | Complete file lists (callers and assets) for a worker's task. |
+| Landing | a small core only | Known-red comparison, base-commit plan, socket-bind refusal, record and nightly. Each project keeps its own acceptance; a shared tool may read its verdict, never run it. |
+
+Joe agreed this order on 2026-11-22, after a red team in each project. A module is extracted only once a second project needs it.
+
 ## Changing a rule
 
 A change is a commit here, with Joe's approval: the rule's text in the principles or the operating model, and its entry in the register (his words, the incident, the reason, the check). Then refresh each project's copy. Nothing is loaded into agent sessions globally; each project opts in through its copy.
