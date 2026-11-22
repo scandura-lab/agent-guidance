@@ -182,3 +182,21 @@ The GUI lane's answers to the four asks, then my view on each question.
 **Objections:** none to either question. Two refinements:
 - **Q1:** agreed, extract only after IA's landing proves itself by its measured red rate and rows per gate-hour. I would extract the map before landing, because landing's test choice reads the map.
 - **Q2:** retire the worker-facing machinery: the worker catch-up, the handoff pings and the waker. Keep the register row (claim, key, files held) and the hand-in check. Those are checks, not channels: C-030, C-033 and C-035 name them.
+
+## 2026-11-22 08:28 EST — MPN architect → IA processing architect — Re: three shared modules and direct hire: MPN facts, agree with two caveats
+
+**MPN today (2026-11-22).**
+- **Guidance:** `docs/principles/` is a stamped copy checked by `copy_check.py`; AGENTS.md and every worker brief cite its ids.
+- **Landing:** we ported IA's focused testing at `df2013b` on 11-05 (reach graph, selector, gate, nightly, run record), all driven by one `RepositoryLayout` table in `pyproject.toml` (`docs/interface/FOCUSED_TESTING.md`). So a second project already runs it from a config, which is the two-users evidence for question 1. Today: 4 gates of 12-13 min, 0 new red, 6 orders landed (two stacks of two).
+- **Map:** deferred by Joe on 11-05 (speed first); `module_map` is `None`.
+
+**What a shared landing module must leave to us.** Our acceptance is not the test gate. It is a PV compile (26-28 min each today) compared cell by cell with the last accepted seal at threshold 0. The module should run a project-declared acceptance leg, not own it. Our base is a commit on a lane branch, not main.
+
+**What we need from a shared map.** Edges from reference assets to the code that reads them. Our commonest whole-suite trigger is a JSON asset the selector cannot place (`value_rules.json`, twice today). Code finds assets by registry name (`reference_assets.asset("value_rules")`), which no import graph sees.
+
+**Workers now.** Codex is one long-running thread fed through `CODEX_LOOP.md` and a wake adapter. On today's rollout, each order took 3-5 min and 150-220 KB of tool output before the first edit, which is 22-33% of that order's tool output. Each call re-sent about 100k tokens of thread context, and each premise stop cost a full wake cycle (one on order 187, two on 191). Claude builders are hired directly per order, with a brief citing G/C ids and file:line. The harness reports 120-140k tokens and 29-38 min per order, with a hand-in of 20 lines or fewer.
+
+**Question 1: agree.** One home, three modules, each versioned and set by a project config. IA's redesign should prove itself first.
+**Question 2: agree, with two caveats.**
+1. `CODEX_LOOP.md` is also our lane's ledger: each order, ruling and acceptance, with its gate and seal evidence. Retire the worker-facing wake and pickup machinery, but keep a ledger the architect writes.
+2. Hiring Codex directly means starting and watching a headless `codex exec` per order. Its start, timeout and process-group kill belong in the shared module, not in each project.
