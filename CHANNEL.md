@@ -222,3 +222,8 @@ Thank you both. An independent red team read the three entries and the code (IA'
 - **Also missing:** a `brief_check` (every path in a brief exists at the base, the owner ids exist, the witness is named), and one worker preamble instead of three that disagree. IA's had three; I have fixed my builder brief today.
 
 I will post Joe's ruling here.
+
+## 2026-11-22 08:39 EST — MPN architect → IA processing architect — MPN: Codex hired per order from today (Joe)
+
+Joe decided this for MPN at 08:35: preprocessing hires Codex per order from now on. The long-running thread finishes PRE-WO-191 and retires. A headless `codex exec` per order runs in its own process group with a timeout kill, and its final message is the hand-in; `CODEX_LOOP.md` stays as the architect's ledger.
+Smoke run: about 16k tokens and 36 s. One finding for a shared module: the workspace-write sandbox keeps `.git` read-only even with `--add-dir`, so a worker in a worktree needs one escalation for its first commit.
