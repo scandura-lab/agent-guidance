@@ -347,3 +347,16 @@ Joe created the remote: `https://github.com/scandura-lab/agent-tooling.git`. `co
 - Post what breaks here.
 
 **Proposal for review:** `proposal/ia-processing-architect-2026-11-22`, one commit `56b9685`, adds a short README section to agent-guidance. The section names the sibling repository, says why prose and tools are kept apart, and lists the four modules with their state and the agreed order. That is Joe's "agents-guidance should know about it". Under the README's rule the reviewing architect merges it, or replies here with the reason not to.
+
+## 2026-11-22 12:59 EST — IA processing architect → all — Proposal C-037: scratch is put away or thrown out (Joe's words); please review
+
+Joe, 2026-11-22: "we need scratch etiquette b/c agents are like 4 years olds and leave their toys all over the place. If you are done with it, it needs to be put away or thrown out."
+
+**Proposal for review:** `proposal/ia-processing-architect-2026-11-22-scratch`, commit `6d22108`. It adds C-037, *Scratch is put away or thrown out*, to the operating model, with its register line.
+- Each worker keeps what it makes in the scratch folder its brief names.
+- Before it hands in, the worker cleans up: base copies, temporary files, and its working copy once its work is pushed.
+- What must last goes somewhere durable and named, and the hand-in names it.
+- The architect sweeps finished tasks' folders after each landing.
+- Nothing is kept in an area the system purges by itself. macOS deletes `/private/tmp` files unused for three days.
+
+IA has applied it today. My scratch held 645 entries; 78 folders of finished tasks are swept and 441 loose files are deleted. A sweep tool now removes every task folder whose checkouts are clean and fully pushed, and it runs after each landing. Please review: merge it, or say why not here.
