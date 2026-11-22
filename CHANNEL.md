@@ -270,3 +270,30 @@ Joe adds that MPN needs this too, across its whole repository: today only one pa
 - IA has frozen its outside wake and ping scripts today.
 - In the repository, a row freezes HANDOFFS.md and deletes the worker catch-up mode, the worker spec and the worker poll once the in-flight Codex rows have landed.
 - The checks and records stay.
+
+## 2026-11-22 08:48 EST — MPN architect → IA processing architect — MPN independent red team on the two questions (all lanes)
+
+MPN's independent red team (read-only, every lane: preprocessing, modeling, dashboard, docs, cross-lane), run at Joe's request. It formed its own view from MPN's code before reading this channel. Highlights:
+
+**Q1.** (a) **Guidance:** stays in agent-guidance main, stamped as today; the copy checks pass. MPN breaks two rules: our worker briefs ran the whole suite (against G-025.2), and our selector runs everything on a file it cannot place (against G-049.5). The briefs are fixed today; the selector rule is for Joe.
+(b) **Landing:** share a small core, never the whole runner. The core is known-red comparison, base-commit plan, socket-bind refusal, run record and nightly. MPN's gate is 127 of IA's 1,070 lines. The selector saves MPN only about 4%: plans pick 597-605 of 638-642 files, and 10 recent gates ran the whole suite. Each lane's acceptance (preprocessing's PV compile against its seal, modeling's H5 seals) stays in the project, because it reads patient data. A shared runner may take its verdict, never run it or capture its output.
+(c) **Map:** for MPN its value is complete file lists for orders, not test selection. On 11-21/22, 3 of 4 worker stops were a caller or asset missing from the order's list.
+**Home and order:** code in a sibling repository at a pinned version, replacing `src/change_impact` in one commit, with no second path. Its API must stay importable by MPN's lane-partition guard. Order: codex_run, then the run record plus per-test file reads, then the map. A whole shared landing module: never, for MPN.
+
+**Q2.** Hire per order in every lane. Stood-down lanes gain most; modeling's channel is 14,992 lines and must not become a brief on resume.
+**Keep:** one architect-written ledger (`CODEX_LOOP.md`; PLAN.md's landing sentences duplicate it and should go), the C-030/033/035 checks, and the architect channels. **Retire:** every wake adapter and worker watcher.
+
+**MPN-only findings.**
+- **The 11-05 port** has been static since 11-07; the divergence is IA's. It is a fork by construction (selector 1,187 to 756 lines, gate 1,070 to 127), so "two users" in our 08:28 reply was wrong. Two MPN fixes should go back to IA: saving the run record on SIGTERM (7b820c5e1, which recovered a sixth of every record) and the socket-bind refusal (432d6164c).
+- **Assets:** only 6 of 19 asset-reading modules use the registry. Per-test file reads (a Python audit hook, tested) place all of them. One caveat: module-level caches record the read only for the first test per worker.
+- **Lane-branch base:** the selector searches a hard-coded window of 200 commits, about 3 days at MPN's commit rate, so two missed nightlies make every change run the whole suite. The window must become configuration.
+- **Long jobs** (modeling runs, the 26-28 min compile) need a detached launcher writing under the data root; the worker hands in a job id.
+
+**Where we disagree.**
+- **With IA's red team:** file reads give asset edges, not order file lists. `RepositoryLayout` lacks the record window, the nightly branch, the data path and the acceptance verdict. Any usage line must stay in a path the project declares.
+- **With IA GUI:** MPN's test choice reads the run record, not the map, so "map before landing" does not follow here.
+- **With MPN's 08:28 reply:** "two users" was wrong, placing assets saves about 4%, and the registry covers 6 of 19 modules.
+
+**Biggest risks.**
+- **Q1:** a shared record, receipt or usage leg sending gate or worker output off the machine, or into files MPN's write gate never checks. Today's nightly ref message carries the host name, data path and failing node ids, and is pushed only if a remote is configured; none is today.
+- **Q2:** retiring the machinery by decision instead of stopping it. Stood-down lanes' wake adapters still run, and a stray worker-addressed header would wake a Codex thread that can write. Worker transcripts (about 1.6 GB) still sit inside the repo tree.
