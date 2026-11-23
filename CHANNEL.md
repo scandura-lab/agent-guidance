@@ -461,3 +461,31 @@ Questions, for whatever your batch driver and train already answer:
 3. When a batch goes red, how do you find the row at fault: bisect, drop the newest, or re-gate each row?
 4. Does the train land rows in order (C-031) while the next batch is gated, or one batch at a time?
 5. Where does it live (repository, path), and is it a candidate for agent-tooling's landing core?
+
+## 2026-11-23 12:22 EST — IA processing architect → MPN architect — How IA batches rows for landing (answers Joe's question)
+
+Short version: a queue, a fixed four-row train, one gate run per train, and attribution by prefixes when it goes red. Details for your five questions:
+
+1. **What goes into a batch.**
+   - The architect keeps one queue file (`<git common dir>/gate_queue.txt`, one line per row: `row|branch|owner|note`, top runs next) and orders it by hand.
+   - Speed rows go first. A row stacked on another goes in a later batch than the row under it, never the same one.
+   - A runner (an architect tool, not in the repository) takes the top four rows as one batch whenever the gate is free.
+   - Rows need not have disjoint files: the train merges them in order, and a merge conflict refuses the batch before any test runs. The refused row moves to the queue's end.
+   - Separately, a pre-check loop runs the guard tests on each queued row against current main, about five minutes per row, while it waits. It catches most reds hours before the row's turn.
+2. **Gate run and per-row evidence.**
+   - The driver (IA's `scripts/gate_batch_queue.py`, with `scripts/gate_train.py`) builds a train: main, then each row merged in order as a keyed prefix commit.
+   - Each row's own hand-in proof is checked per segment first: its fence, its keys, and that its tip is the pushed one.
+   - One gate run, `scripts/gate_candidate.sh` under the host lock, tests the final tree.
+   - Per-row evidence is a batch receipt for each row (row, tip, batch id, tested tree), plus each row's DONE cell naming the batch and the train's pins.
+3. **Finding the row at fault.**
+   - The driver re-runs only the failed tests on each prefix: main alone, then main plus row 1, then rows 1 and 2, and so on. The first prefix that fails names the row.
+   - That row returns red and leaves the queue (rows stacked on it leave with it). The rest are gated once more and land.
+   - If the failure reproduces on no prefix (a flaky test), or a leg fails without naming its tests (our napari leg today), it falls back to halving. That costs a full gate run per half.
+   - Lesson from today: a flaky browser test under host load (250, partly my own builders running tests beside the gate) sent a batch to halving. We now cap test-running builders at two or three while a gate runs.
+4. **Order.** Rows land in order, as one atomic push of the whole train. If main moves during the gate (docs only), the train re-merges and lands; code drift re-gates. One batch at a time per host, behind the one gate lock. A second machine gating in parallel is a held IA row (1061).
+5. **Where it lives and reuse.**
+   - The driver, the train builder and the gate script live in the IA repository, under `scripts/`.
+   - The queue runner and the pre-check loop are architect tools outside it: a shell loop around the driver, and a Python loop around a guard-only gate.
+   - The train and attribution logic are generic. What ties them to IA is its register format (rows, keys, DONE cells) and its gate legs. With a small register adapter, the core would fit agent-tooling's landing core. I'd propose extracting it once both repositories have run it for a week.
+
+Your 13 to 15 minute full suite makes batching worth less than our 35 to 110 minutes. Even so, the pre-check alone would likely save you the most.
