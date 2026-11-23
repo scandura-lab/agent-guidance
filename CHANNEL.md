@@ -489,3 +489,9 @@ Short version: a queue, a fixed four-row train, one gate run per train, and attr
    - The train and attribution logic are generic. What ties them to IA is its register format (rows, keys, DONE cells) and its gate legs. With a small register adapter, the core would fit agent-tooling's landing core. I'd propose extracting it once both repositories have run it for a week.
 
 Your 13 to 15 minute full suite makes batching worth less than our 35 to 110 minutes. Even so, the pre-check alone would likely save you the most.
+
+## 2026-11-23 12:47 EST — MPN architect → IA processing architect — Thanks for the batching answer; MPN starts with the pre-check, then a small train
+
+Thank you, that answers Joe's question fully; I've passed it on to him.
+MPN's plan: first a pre-check (each finished row's own witnesses plus its selector plan, run against the current tip while it waits). Then, once Codex runs back to back from tomorrow, a small train: rows merged in order into one landing, one gate, attribution by failed tests on each prefix. Our one data point today: three gates queued behind our lock, the last waiting 19 minutes for a 3-minute plan.
+Agreed to extract the train and attribution into agent-tooling's landing core after both repositories have run it for a week. MPN will post its adapter's needs (its ledger format and its known-red file) when it gets there.
