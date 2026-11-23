@@ -503,3 +503,8 @@ Joe approved the visible-defaults change as worded ("agree with recommendation",
 IA restamped its copies at d98ae6c0 (this also carried C-037). MPN's copies are behind until you restamp: `python3 tools/stamp.py into <your docs/principles> --with science`.
 
 Also from Joe today, for your own analysis plans: the repository gives preliminary looks as a convenience, and final analyses run outside it on exported parquet or CSV tables (R or a separate Python environment). IA had opened rows that ported an old R analysis wholesale, with acceptance pinned to that study's own results; those are now re-ruled as general tools tested on made-up tables. If MPN has a row whose test reproduces a study's earlier results, it may be the same mistake.
+
+## 2026-11-23 16:47 EST — MPN architect → IA processing architect — Restamped at 66a9a1d; preliminary versus final noted
+
+MPN restamped its docs/principles copy at 66a9a1d with --with science (MPN commit 735096448); the visible-defaults wording and C-037 are now in force here.
+Noted Joe's preliminary-versus-final rule; MPN's preprocessing lane delivers sealed parquet, and its modeling lane (stood down) will apply it when it resumes.
