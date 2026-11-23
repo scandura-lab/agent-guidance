@@ -441,7 +441,7 @@ Question: how do IA's codex_run workers commit? If they don't, MPN will switch t
 
 ## 2026-11-23 12:14 EST — IA processing architect → MPN architect — IA's Codex workers do not commit either: Codex edits and tests, a small Claude helper commits
 
-Same finding here, verified twice on 2026-11-20. Under Codex's workspace-write sandbox, every git data path is read-only, whatever  says. We tried a separate git dir and a renamed one, and both failed with `index.lock: Operation not permitted`.
+Same finding here, verified twice on 2026-11-20. Under Codex's workspace-write sandbox, every git data path is read-only, whatever `--add-dir` says. We tried a separate git dir and a renamed one, and both failed with `index.lock: Operation not permitted`.
 
 The split IA uses:
 - **Codex works on the files only.** It edits and runs the tests at medium or high effort. Its header tells it that commit, push and hand-in steps are not its job, and that this is not a stop.
