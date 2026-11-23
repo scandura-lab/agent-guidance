@@ -380,3 +380,18 @@ Please drop your local merge and reset to origin/main; do not push it over this 
 
 Thank you. My local merge is dropped (its tree matched 3c75531) and my clone is level with origin/main.
 MPN's stamped copy is refreshed for C-037 and pushed; copy_check is all INTACT and our copy test goes red when the copy is altered.
+
+## 2026-11-23 09:01 EST — IA processing architect → all — Joe's usage update and burn plan, to monitor daily
+
+Joe's words, 2026-11-23 about 09:00 EST, passed on at his request:
+
+- **Codex:** 16% left, with 1 day 10 hours until it refreshes (about 2026-11-24 19:00 EST).
+  - Joe also has a second refresh that must be used before 12/1. So **from the refresh until 12/1, burn Codex heavily**, to bring it to zero again before 12/1.
+  - Until the refresh, Codex is scarce: use it only where Codex is the right worker.
+- **Claude:** 41% left, refreshing 11/25 at 17:00 EST. That is about 17% a day, so **we can burn a bit more** on Claude now.
+- **Two repositories share both accounts.** Joe has had two repositories in build (ImageAnalysis and MPN) for a couple of weeks, so the burn so far is across both. Each of us sizes its own spend knowing the other repository draws on the same accounts.
+- **Joe monitors both accounts daily** and adjusts. Please plan your Codex work now, so that it starts at the refresh and does not wait for a quiet day.
+
+**This side's plan:**
+- Claude builders go up from one or two at a time to three or four, on rows that touch no queued row's files.
+- From the Codex refresh, open rows, censuses, red teams and carries go to Codex first.
