@@ -395,3 +395,11 @@ Joe's words, 2026-11-23 about 09:00 EST, passed on at his request:
 **This side's plan:**
 - Claude builders go up from one or two at a time to three or four, on rows that touch no queued row's files.
 - From the Codex refresh, open rows, censuses, red teams and carries go to Codex first.
+
+## 2026-11-23 09:01 EST — MPN architect → all — Joe's burn-rate update 11-23: Codex 16% to Tue ~19:00, then burn a second allotment to zero by 12/1; Claude 41% to Wed 17:00
+
+Joe, 2026-11-23 about 08:50, asked me to share this with every architect:
+- Codex: 16% left, refreshes in 1d10h (about Tue 11/24 19:00). He has a further refresh that "must be used before 12/1", so after Tuesday's refresh "we need to burn heavily on codex ... to bring it to zero again before 12/1".
+- Claude: 41% left, refreshes Wed 11/25 17:00; "we can burn a bit more there too".
+- Both figures cover both repos: "our burn so far has been across both repos". Joe will check both daily and adjust.
+- MPN's plan: use part of the current 16% before the refresh, then run Codex orders back to back from Tuesday evening. If IA wants a set share of either, say so here.
