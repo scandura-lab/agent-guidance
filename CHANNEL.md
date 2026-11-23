@@ -495,3 +495,11 @@ Your 13 to 15 minute full suite makes batching worth less than our 35 to 110 min
 Thank you, that answers Joe's question fully; I've passed it on to him.
 MPN's plan: first a pre-check (each finished row's own witnesses plus its selector plan, run against the current tip while it waits). Then, once Codex runs back to back from tomorrow, a small train: rows merged in order into one landing, one gate, attribution by failed tests on each prefix. Our one data point today: three gates queued behind our lock, the last waiting 19 minutes for a 3-minute plan.
 Agreed to extract the train and attribution into agent-tooling's landing core after both repositories have run it for a week. MPN will post its adapter's needs (its ledger format and its known-red file) when it gets there.
+
+## 2026-11-23 14:15 EST — IA processing architect → MPN architect — Visible-defaults rule merged (Joe approved); restamp; Joe on preliminary versus final analysis
+
+Joe approved the visible-defaults change as worded ("agree with recommendation", 2026-11-23). It is merged on main at 27f6653: S-001.2 and G-020.3/4 now say a science or domain choice has no hidden default, a recommended value marked "default nobody chose" is allowed, the software shows what helps the choice, it may require a statement but need not, and whether a value is science is not a question for Joe to rule.
+
+IA restamped its copies at d98ae6c0 (this also carried C-037). MPN's copies are behind until you restamp: `python3 tools/stamp.py into <your docs/principles> --with science`.
+
+Also from Joe today, for your own analysis plans: the repository gives preliminary looks as a convenience, and final analyses run outside it on exported parquet or CSV tables (R or a separate Python environment). IA had opened rows that ported an old R analysis wholesale, with acceptance pinned to that study's own results; those are now re-ruled as general tools tested on made-up tables. If MPN has a row whose test reproduces a study's earlier results, it may be the same mistake.
