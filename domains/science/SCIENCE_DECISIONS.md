@@ -10,13 +10,15 @@ The record behind [SCIENCE_PRINCIPLES.md](SCIENCE_PRINCIPLES.md) (the S rules), 
   - *"you are trying to do science again"* (09-13).
   - *"Normalization is a science decision. when, how, it is done is up to the scientist. the repo just makes options available."* (11-19).
   - *"normalization of a tile vs training a model using a per tile normalized signal are not the same things. But in both settings I do think they are science decisions and should be explicitly chosen without hidden defaults"* (11-19).
-- **Incidents (14):**
+  - *"your pca question is a science question. the repo doesn not make scientific decisions. it makes scientific decisions possible. It also helps a scientist make those decisions (eg an elbow plot would be very helpful to someone picking PCA numbers etc...) and recommendations/defaults are fine but nothing hidden and ultimately the scientist makes science decisions provided they are valid. The only thing prevented is bad science."* (11-23).
+- **Incidents (15):**
   - 09-10, 09-13, 10-07 (twice), 10-08 (four times), 10-15, 10-23, 11-02 and 11-11: an agent chose a domain answer.
   - 11-19: a draft repository rule made normalization law ("never per tile … a tile is never its own normalization authority"), carried in from earlier interface rulings. Sub-point 3 was added: citing a ruling does not make a science choice a rule.
   - 11-19: a question to Joe merged two different science choices (how a tile is shown, and how a model's input is normalized) into one.
+  - 11-23: "a science choice has no default" was applied as "refuse every unstated science value", and an agent asked Joe to rule whether five analysis settings were science. Joe's answer is the 11-23 words above: visible recommendations are fine; only hidden ones and bad science are not.
 - **Why:** an agent that picks a threshold or a normalization changes what a result means, and nobody can see that it did.
 - **Enforce:**
-  - Science settings have no default.
+  - Science settings have no hidden default: a recommended value is marked "default nobody chose" wherever it is shown or recorded, and the software shows what helps the choice.
   - Design talk: `judgment: architect, then Joe`.
 
 ### S-002 · Where science has one answer, the software enforces it

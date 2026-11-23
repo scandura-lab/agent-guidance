@@ -238,8 +238,9 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
 - **Words:**
   - *"it is ok to have defaults. it is not ok to hardwire things and worse to have invisible defaults"* (08-27).
   - *"No hidden defaults"* (11-05).
+  - *"recommendations/defaults are fine but nothing hidden"* (11-23, on a science setting; the full words are under S-001).
   - *"Each step has a settings object that cannot drift and one reader and one writer."* (10-16).
-- **Incidents (11):**
+- **Incidents (12):**
   - 08-27, 09-24 and 10-10.
   - 09-17: a field added later had no declared meaning for its absence.
   - 10-15: a setting was chosen silently.
@@ -248,6 +249,7 @@ All dates are 2026, and "n.r." means not recorded. Every entry is **live**. A pr
   - 11-05.
   - A dictionary was read by key at 26 sites.
   - 11-19: two readers asked what to do when unsure whether a value is domain or technical.
+  - 11-23: sub-point 3 (then "a domain choice has no default") was read as forbidding even a visible recommendation, which Joe's 08-27 and 11-23 words allow.
 - **Why:** "one writer, one reader" means one module builds the object from storage and one stores it; every other module receives the typed object.
 - **Enforce:**
   - Every value a registered operation runs with is declared or read from the data.

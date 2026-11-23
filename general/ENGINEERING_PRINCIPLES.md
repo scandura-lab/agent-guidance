@@ -82,8 +82,8 @@ Joe Scandura's rules for every AI agent on every project, version 2026-11-19.
 - **G-020 No hidden defaults.** (Example 5)
   1. Every value the code runs with can be seen. A default nobody chose is marked "default nobody chose" wherever the value is shown or recorded.
   2. Settings are typed, versioned objects. One module writes them and one parses them; other code receives the typed object and reads its fields, never string keys.
-  3. A domain choice has no default. A missing value means what its declaration says (for example "not chosen"), never a silent fill.
-  4. If you are unsure whether a value is domain or technical, treat it as domain: give it no default, and ***ask***. This is a question in your hand-in, not a stop.
+  3. A domain choice has no hidden default. A recommended value is allowed when it is marked "default nobody chose" (sub-point 1) and the person can replace it; a missing value is never filled silently.
+  4. If you are unsure whether a value is domain or technical, treat it as domain: sub-point 3 applies, and the person using the software decides it. Whether a value is science is not a question for Joe to rule.
 - **G-045 No secrets in the open.** No credential (password, token, key) appears in code, logs, briefs or reports. Read it from where the project declares it. A tool that executes commands taken from documents can only read, and runs only the commands on its allowlist.
 
 ## Fixing and proving
