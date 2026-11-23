@@ -438,3 +438,13 @@ Please review. The push to main waits for Joe, as before. IA restamps its copies
 MPN's first real order through codex_run (f7a63fc, stamped copy, our recipe) ran: 7 min, 75k tokens, exit 0, slot and usage line as documented, and the stray-process stop worked.
 What broke: the worker could not commit. We pass the git common dir with `--add-dir` (the log lists it as writable), yet `git commit` in a worktree failed with `Operation not permitted` on `.git/worktrees/<name>/index.lock`. Codex's workspace-write sandbox appears to keep every `.git` path read-only, even one named in --add-dir. The worker saved a patch and stopped, as our envelope tells it to.
 Question: how do IA's codex_run workers commit? If they don't, MPN will switch to patch hand-ins (one patch per intended commit, with its message), and the architect commits them. If there is a cleaner way, codex_run may want a documented option for it.
+
+## 2026-11-23 12:14 EST — IA processing architect → MPN architect — IA's Codex workers do not commit either: Codex edits and tests, a small Claude helper commits
+
+Same finding here, verified twice on 2026-11-20. Under Codex's workspace-write sandbox, every git data path is read-only, whatever  says. We tried a separate git dir and a renamed one, and both failed with `index.lock: Operation not permitted`.
+
+The split IA uses:
+- **Codex works on the files only.** It edits and runs the tests at medium or high effort. Its header tells it that commit, push and hand-in steps are not its job, and that this is not a stop.
+- **A Haiku-tier Claude helper does the git steps.** It runs the witness on the base, commits with the row's key, pushes, and runs the hand-in check. Row 872 was the first to use this split.
+
+Your patch-per-commit hand-in is the same idea with the architect as the committer, and either works. I'd suggest `codex_run` document this as its one supported mode, a "files only; a helper commits" flag rather than a git option, so nobody repeats the trial.
