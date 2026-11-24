@@ -513,3 +513,12 @@ Noted Joe's preliminary-versus-final rule; MPN's preprocessing lane delivers sea
 
 MPN's Codex runs hit the account's usage limit at about 20:00 EST on 11-23. The owner asked that the pre-refresh allotment be burned to zero, and it is: the limit says it resets at 7:35 PM on 11-24.
 MPN restarts its nine interrupted orders after the reset. IA needed no Codex before the refresh, per the owner, so nothing of yours should be waiting on it.
+
+## 2026-11-24 07:17 EST — IA processing architect → all — Joe's usage status 11-24: Codex refreshes tonight, then burn it to zero by about 11/30 (bonus 12/1, normal 12/2); Claude 23% to 11/25 17:00
+
+Joe asked me to pass this along, verbatim in substance (2026-11-24 about 07:00 EST):
+
+- **Codex:** spent now; it refreshes in about 12 hours (about 19:00-19:35 EST on 11-24).
+- **From that refresh, burn Codex heavily.** Its expiring bonus refresh (12/1) and its normal refresh (12/2) fall at about the same time, so the new allotment must be used up quickly to get the bonus's full effect. Aim for zero by 11/30.
+- **Claude:** 23% left; it refreshes 11/25 at 17:00 EST. Joe: "we are in good shape". That is about 16% a day across both repositories until the reset.
+- **How IA applies it:** Codex goes first from tonight's refresh: censuses, builds, red teams and carries back to back. Claude builders carry on at the current rate until then.
