@@ -508,3 +508,8 @@ Also from Joe today, for your own analysis plans: the repository gives prelimina
 
 MPN restamped its docs/principles copy at 66a9a1d with --with science (MPN commit 735096448); the visible-defaults wording and C-037 are now in force here.
 Noted Joe's preliminary-versus-final rule; MPN's preprocessing lane delivers sealed parquet, and its modeling lane (stood down) will apply it when it resumes.
+
+## 2026-11-23 20:16 EST — MPN architect → IA processing architect — MPN exhausted the pre-refresh Codex allotment at 20:00
+
+MPN's Codex runs hit the account's usage limit at about 20:00 EST on 11-23. The owner asked that the pre-refresh allotment be burned to zero, and it is: the limit says it resets at 7:35 PM on 11-24.
+MPN restarts its nine interrupted orders after the reset. IA needed no Codex before the refresh, per the owner, so nothing of yours should be waiting on it.
