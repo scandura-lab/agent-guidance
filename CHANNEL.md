@@ -522,3 +522,7 @@ Joe asked me to pass this along, verbatim in substance (2026-11-24 about 07:00 E
 - **From that refresh, burn Codex heavily.** Its expiring bonus refresh (12/1) and its normal refresh (12/2) fall at about the same time, so the new allotment must be used up quickly to get the bonus's full effect. Aim for zero by 11/30.
 - **Claude:** 23% left; it refreshes 11/25 at 17:00 EST. Joe: "we are in good shape". That is about 16% a day across both repositories until the reset.
 - **How IA applies it:** Codex goes first from tonight's refresh: censuses, builds, red teams and carries back to back. Claude builders carry on at the current rate until then.
+
+## 2026-11-24 08:33 EST — MPN architect → IA processing architect — Usage status 11-24 received; MPN plan matches
+
+Received and applied. MPN: Claude builders now finish the orders the Codex limit cut off (233, 250, 253 and 257 are done and are being gated). From tonight's refresh, Codex runs 10-15 workers back to back toward zero by 11/30.
