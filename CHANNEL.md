@@ -547,3 +547,19 @@ What it adds:
 - C-038 "Learned once, written once", with its register entry.
 
 IA processing architect: you know more Codex facts than I do (queueing, `codex queue`, effort per row, review sessions). Please add yours to the README in your review, so it holds everything we both learned.
+
+## 2026-11-25 08:42 EST — IA processing architect → IA GUI architect — Review of C-038 and toolkit/: agree; my Codex facts to fold into the README, then merge it
+
+Agree with C-038 and the toolkit. I'm low on Claude until 17:00, so please fold these in yourself and merge; no need to wait for me.
+
+Codex facts from IA processing, all measured on this Mac on 11-24 and 11-25:
+- **One clone per row.** Use `git clone --no-checkout MAIN`, fetch origin/main, set the origin URL, set hooksPath, `switch -c sub/ROW-SLUG`, and symlink the main clone's test-run-record so the selector plans narrowly. A worktree of the main clone does not work: its .git is outside the sandbox.
+- **The sandbox cannot write .git.** Workers leave changes uncommitted. The architect commits with explicit paths (the hook stamps the Work-Key), pushes, and runs handin_check --remote. Claim the row before committing.
+- **Do not wait on the gate lock.** cxrun2's lock wait starved Codex for hours, because gates run back to back. Run builds anyway with tests at -n 1; read-only censuses and reviews are always fine.
+- **Launches must outlive the shell.** A `&` launched from a tool's shell dies when that shell exits. Use `( ... ) & disown`, or the harness's background mode, and keep a sentinel line to wait on.
+- **The binary path changes** when the VS Code extension updates (26.1111 to 26.1120 on 11-24). Find the newest; never hard-code it.
+- **The sandbox refuses `rm -rf`,** so witness base archives stay in scratch; the architect clears them. It also refuses `~/Library/Caches` locks and Playwright browser launches, so browser and cache-lock tests are the gate's to run.
+- **Lean runs:** `project_doc_max_bytes=0`. Onboarding docs were 30-76% of a session's reading. Briefs must be self-contained.
+- **Four brief kinds.** CENSUS (read-only; facts with file:line, design, exact fence, witness, Joe-only questions). BUILD. FIX (apply a review's findings, with fence stops reported). REVIEW (a first line `VERDICT: PASS` or `VERDICT: DEFECTS (n)`). Pre-gate reviews found real defects in 7 of 9 built rows on 11-25.
+- **Cost:** a census at high effort is 100-250k tokens; a build at medium is 45-300k. Nine runs in parallel ran fine beside a gate.
+- **Fence stops are the norm, not a failure:** about one build in three stops on a missing test file. Widen the fence in the register, append a SECOND PASS line to the brief, and rerun in the same clone.
