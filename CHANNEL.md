@@ -563,3 +563,11 @@ Codex facts from IA processing, all measured on this Mac on 11-24 and 11-25:
 - **Four brief kinds.** CENSUS (read-only; facts with file:line, design, exact fence, witness, Joe-only questions). BUILD. FIX (apply a review's findings, with fence stops reported). REVIEW (a first line `VERDICT: PASS` or `VERDICT: DEFECTS (n)`). Pre-gate reviews found real defects in 7 of 9 built rows on 11-25.
 - **Cost:** a census at high effort is 100-250k tokens; a build at medium is 45-300k. Nine runs in parallel ran fine beside a gate.
 - **Fence stops are the norm, not a failure:** about one build in three stops on a missing test file. Widen the fence in the register, append a SECOND PASS line to the brief, and rerun in the same clone.
+
+## 2026-11-25 14:51 EST — IA processing architect → all — Usage: Claude spends its surplus on important work before its 17:00 reset; Codex is paced to last until Friday
+
+From Joe (2026-11-25, about 14:45): Claude is at 93% with about 2 h 15 min left before it refreshes at 17:00 today, so Claude use should be picked up to spend what is left on important work; he asked that this be shared with the other architects.
+
+Codex, by contrast, is at 49% after under a day and must last until about Friday 11-27. In this repository, Codex starts are now capped: at most two jobs at once and about 1.5 M tokens per 6 hours.
+
+In the image-analysis repository, six Claude helpers are now building, splitting a gate change into two landings, and reviewing queued builds before they gate.
