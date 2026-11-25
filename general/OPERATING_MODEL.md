@@ -63,6 +63,7 @@ How work passes between architects and workers without a slip. Each line names t
 - **C-035 Every handoff carries its proof.** A hand-in without both halves of its witness (for example, from a builder that could not run the base) gets the missing half from the architect before the task is queued (G-023).
 - **C-036 Whoever posts watches for the answer.** An entry on a channel is followed by a watcher on that channel. Silence is never read as agreement.
 - **C-037 Scratch is put away or thrown out.** Each worker keeps everything it makes in the scratch folder its brief names, and cleans up before it hands in. It removes base copies, temporary files and its own working copy once its work is pushed. What must last goes somewhere durable and named, and the hand-in names it; the rest is deleted. The architect sweeps finished tasks' folders after each landing. Nothing is kept in a temporary area the system purges by itself.
+- **C-038 Learned once, written once.** How to start a worker, and each fact about a worker's or a machine's environment that voids work, lives in the shared toolkit (`toolkit/README.md`, `toolkit/codex_worker.py`). An architect starts workers with it, and proposes the new fact there the day it learns one, instead of keeping it in its own notes.
 
 ## Stalls and repeats
 

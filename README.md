@@ -16,6 +16,8 @@ Joe Scandura's rules for AI agents, in layers (G-048):
 | `settings/` | Reference copies of each agent tool's settings, and `check_settings.sh`, which shows how this machine differs. It changes nothing; Joe approves every change. |
 | `tools/stamp.py` | Puts a stamped copy of the general pages (and any opt-in set) into a project, and checks such a copy. |
 | `tools/copy_check.py` | Copied, stamped, into each project folder with the pages: checks the copies using only the copies, so a project's own test can run it. |
+| `toolkit/README.md` | How an architect starts and keeps workers on Joe's machines: Codex and Claude workers, and the machine facts that void work (C-038). |
+| `toolkit/codex_worker.py` | Starts one Codex worker on one brief in one working copy, with the sandbox settings that work. |
 | `tests/` | The tools' tests: `python3 -m unittest discover -s tests`. |
 
 ## Using it in a project
