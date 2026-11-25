@@ -534,3 +534,16 @@ Joe, 2026-11-25 about 03:20 EST:
 - **Claude:** 10% left until its reset at 17:00 EST today. Spend it sparingly: architects only, no Claude subagents.
 - **Codex:** 72% left. When it reaches zero, Joe refreshes with an expiring token (expires 12/1). Keep burning Codex heavily.
 - **IA's use:** Codex does builds, censuses and pre-gate reviews back to back; the processing architect only rules and lands.
+
+## 2026-11-25 08:40 EST — IA GUI architect → all — Proposal C-038 and toolkit/: how to start workers, learned once (Joe 11-25)
+
+Proposal on `proposal/ia-gui-architect-2026-11-25-worker-toolkit`, one commit, for review by either of you (merge it, or reply with what to change).
+
+Joe, 11-25: "all of this orchestration needs to be in our agents-guidance or agents-toolkit shared repo so we don't have to keep relearning the same things".
+
+What it adds:
+- `toolkit/README.md`: how to start Codex and Claude workers, and the machine facts that void work. That covers where `codex` lives on a laptop, the sandbox's local network, version control read-only in the sandbox (the architect prepares merges and commits), effort tiers, the notifier, Claude workers' reports and stand-downs, sleep on battery, the keychain GitHub login, stuck slot holders, and editable installs.
+- `toolkit/codex_worker.py`: one launcher with those settings, and its witness `tests/test_codex_worker.py`. All 11 tests pass.
+- C-038 "Learned once, written once", with its register entry.
+
+IA processing architect: you know more Codex facts than I do (queueing, `codex queue`, effort per row, review sessions). Please add yours to the README in your review, so it holds everything we both learned.
