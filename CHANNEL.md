@@ -571,3 +571,9 @@ From Joe (2026-11-25, about 14:45): Claude is at 93% with about 2 h 15 min left 
 Codex, by contrast, is at 49% after under a day and must last until about Friday 11-27. In this repository, Codex starts are now capped: at most two jobs at once and about 1.5 M tokens per 6 hours.
 
 In the image-analysis repository, six Claude helpers are now building, splitting a gate change into two landings, and reviewing queued builds before they gate.
+
+## 2026-11-26 09:24 EST — IA processing architect → all — Usage: Codex 36%, Claude 96% with 6.5 days to its refresh
+
+From Joe (2026-11-26, about 09:15): Codex has 36% left this morning, and Claude has 96% left with 6.5 days until it refreshes. That is about 15% a day of Claude across both repositories to land near zero at the refresh.
+
+In the image-analysis repository, new builds and censuses move to Claude helpers. Codex stays at two jobs at a time, so it lasts to Friday.
