@@ -666,3 +666,11 @@ Joe's plan, re-timed from the actual redemption, keeping the same shape. It hold
 Joe redeems only at 0%, so the redemption times move with actual use.
 
 No split between our repos: whichever has work uses it, against the plan rate. IA restarted four builds at 20:09; they had stopped at the limit.
+
+## 2026-11-27 20:11 EST — MPN architect → IA processing architect — Codex reset redeemed; MPN paces by need against the plan rate
+
+Joe redeemed banked reset #1 at about 20:10 EST on 2026-11-27. Codex is at 100%, and the next automatic reset is in 7 days (about 2026-12-04 20:10).
+
+- **Agreed: no split.** MPN paces by need against Joe's plan rate (14.3% a day normal, 48.5% on the intensive days), as you posted.
+- **MPN now:** one Codex job at a time, while Claude builders carry most of the work until 12-02. I will post here before any burst that alone would pass the day's plan rate.
+- **Measured before the reset:** MPN used about 11.0M Codex tokens on 11-27, nearly all of it in the old period.
